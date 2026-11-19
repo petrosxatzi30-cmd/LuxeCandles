@@ -1,0 +1,3052 @@
+<!DOCTYPE html>
+<html lang="el" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>LUXE CANDLES — Handcrafted Scented Candle Atelier | Paphos, Cyprus</title>
+  <meta name="description" content="LUXE CANDLES — Atelier Χειροποίητων Αρωματικών Κεριών στην Πάφο, Κύπρος. 100% κερί σόγιας, diffusers, wax sachets, οικολογικά wax melts και ανθοδέσμες κεριών. Δωρεάν μεταφορικά άνω των €60." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-page: #FAF6F0;
+      --bg-surface: #F3ECE2;
+      --bg-card: #FFFFFF;
+      --text-primary: #1F1916;
+      --text-secondary: #4E433C;
+      --border-color: #DFCFC0;
+      --header-bg: #FAF6F0;
+      --accent: #B8744F;
+      --accent-dark: #9A5C3B;
+      --input-bg: #FAF6F0;
+      --page-gutter: clamp(18px, 4.5vw, 44px);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      touch-action: pan-y;
+      overscroll-behavior-x: none;
+      -webkit-text-size-adjust: 100%;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      transition: background-color 0.2s ease-out, color 0.2s ease-out;
+    }
+
+    h1, h2, h3, .font-serif-display {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      color: var(--text-primary);
+      opacity: 1;
+      transition: color 0.2s ease-out;
+    }
+
+    /* Unified safe page container preventing left/right clipping */
+    .safe-container {
+      width: 100%;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: var(--page-gutter);
+      padding-right: var(--page-gutter);
+    }
+
+    /* Top Announcement Bar */
+    .announcement-bar {
+      width: 100%;
+      background-color: #1F1916;
+      color: #FAF6F0;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 9px var(--page-gutter);
+      line-height: 1.4;
+      position: relative;
+      z-index: 1050;
+    }
+
+    /* Sticky Header Bar */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      background-color: var(--header-bg);
+      border-bottom: 1px solid var(--border-color);
+      transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 68px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+
+    /* Clear horizontal spacing so pinned cart button at right:16px never crowds the 3-line menu */
+    .header-controls-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-right: 76px;
+      position: relative;
+      z-index: 1010;
+    }
+
+    .header-pill-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 42px;
+      min-width: 42px;
+      padding: 0 13px;
+      border-radius: 9999px;
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+      opacity: 1;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.15s ease, border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .header-pill-btn:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    /* Always-Visible Pinned Top-Right Cart Button Throughout Scrolling */
+    .pinned-cart-btn {
+      position: fixed;
+      top: 47px;
+      right: 16px;
+      z-index: 1200;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      height: 44px;
+      min-width: 68px;
+      padding: 0 13px;
+      border-radius: 9999px;
+      background-color: #1F1916;
+      color: #FAF6F0;
+      border: 1.5px solid #C68159;
+      box-shadow: 0 8px 24px rgba(28, 22, 19, 0.28);
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      transition: top 0.18s ease, transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease;
+    }
+
+    .pinned-cart-btn.is-scrolled {
+      top: 14px;
+    }
+
+    .pinned-cart-btn:hover {
+      background-color: #B8744F;
+      border-color: #FAF6F0;
+      transform: translateY(-1px);
+    }
+
+    .pinned-cart-btn.pulse {
+      transform: scale(1.12);
+      background-color: #B8744F;
+    }
+
+    .cart-badge-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 21px;
+      height: 21px;
+      padding: 0 6px;
+      border-radius: 9999px;
+      background-color: #B8744F;
+      color: #FFFFFF;
+      font-size: 0.74rem;
+      font-weight: 700;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .pinned-cart-btn:hover .cart-badge-count,
+    .pinned-cart-btn.pulse .cart-badge-count {
+      background-color: #1F1916;
+    }
+
+    /* Framed Hero Brand Logo Showcase */
+    .hero-brand-card {
+      width: 100%;
+      max-width: 560px;
+      margin: 0 auto 2.25rem auto;
+      background: linear-gradient(145deg, #FBF8F3 0%, #F2EAE0 100%);
+      border: 1px solid #DFCFC0;
+      border-radius: 24px;
+      padding: clamp(22px, 4vw, 36px) clamp(20px, 5vw, 44px);
+      box-shadow: 0 18px 44px rgba(31, 25, 22, 0.12);
+      text-align: center;
+      color: #2A211C;
+    }
+
+    /* Solid, Full-Opacity Theme-Aware Surfaces & Cards */
+    .theme-surface {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      opacity: 1;
+      box-shadow: 0 12px 32px rgba(18, 13, 11, 0.10);
+      transition: background-color 0.2s ease-out, border-color 0.2s ease-out, color 0.2s ease-out, transform 0.2s ease-out;
+    }
+
+    .theme-surface-muted {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      opacity: 1;
+      transition: background-color 0.2s ease-out, border-color 0.2s ease-out, color 0.2s ease-out;
+    }
+
+    .theme-text-primary {
+      color: var(--text-primary);
+      opacity: 1;
+      transition: color 0.2s ease-out;
+    }
+
+    .theme-text-secondary {
+      color: var(--text-secondary);
+      opacity: 1;
+      transition: color 0.2s ease-out;
+    }
+
+    .product-card:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Single-Frame Product Media Viewport (Strictly One Image Visible at a Time) */
+    .product-media-box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background-color: #2A211C;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .product-media-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* Interactive Single-Image-at-a-Time Swipe / Slide Track */
+    .media-carousel {
+      touch-action: pan-y;
+    }
+
+    .media-carousel-track {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+
+    .media-carousel-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      min-width: 100%;
+      max-width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .carousel-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 15;
+      width: 34px;
+      height: 34px;
+      border-radius: 9999px;
+      border: 1px solid rgba(250, 246, 240, 0.45);
+      background-color: rgba(31, 25, 22, 0.72);
+      color: #FAF6F0;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      transition: background-color 0.18s ease, transform 0.15s ease;
+    }
+
+    .carousel-nav-btn:hover {
+      background-color: #B8744F;
+      border-color: #FAF6F0;
+    }
+
+    .carousel-nav-btn.prev {
+      left: 10px;
+    }
+
+    .carousel-nav-btn.next {
+      right: 10px;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 15;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 10px;
+      border-radius: 9999px;
+      background-color: rgba(31, 25, 22, 0.62);
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: none;
+      border-radius: 9999px;
+      background-color: rgba(250, 246, 240, 0.45);
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: width 0.2s ease, background-color 0.2s ease;
+    }
+
+    .carousel-dot.active {
+      width: 18px;
+      background-color: #FAF6F0;
+    }
+
+    /* Form Controls (16px font prevents mobile auto-zoom) */
+    .luxe-select {
+      width: 100%;
+      min-height: 46px;
+      padding: 10px 38px 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      background-color: var(--input-bg);
+      color: var(--text-primary);
+      opacity: 1;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.35;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23B8744F' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 16px;
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: background-color 0.2s ease-out, border-color 0.2s ease-out, color 0.2s ease-out;
+    }
+
+    .luxe-select option {
+      background-color: #FFFFFF;
+      color: #1F1916;
+    }
+
+    .luxe-select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(184, 116, 79, 0.24);
+    }
+
+    .btn-accent {
+      background-color: #B8744F;
+      color: #FFFFFF;
+      border: none;
+      cursor: pointer;
+      opacity: 1;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      transition: background-color 0.2s ease, transform 0.15s ease;
+    }
+
+    .btn-accent:hover {
+      background-color: #9A5C3B;
+      transform: translateY(-1px);
+    }
+
+    .btn-accent.is-added {
+      background-color: #2E6F40;
+    }
+
+    .btn-accent[hidden] {
+      display: none !important;
+    }
+
+    /* Category Filter Tabs */
+    .filter-pill {
+      padding: 9px 18px;
+      border-radius: 9999px;
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+      opacity: 1;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .filter-pill:hover,
+    .filter-pill.active {
+      background-color: #B8744F;
+      color: #FFFFFF;
+      border-color: #B8744F;
+    }
+
+    /* Scent Directory Pills */
+    .scent-chip {
+      padding: 8px 15px;
+      border-radius: 9999px;
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-surface);
+      color: var(--text-primary);
+      opacity: 1;
+      font-size: 0.84rem;
+      font-weight: 500;
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .scent-chip:hover,
+    .scent-chip.active {
+      background-color: #B8744F;
+      color: #FFFFFF;
+      border-color: #B8744F;
+    }
+
+    /* Non-Intrusive Toast Notification (Never Blocks Clicks) */
+    .toast-banner {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translate(-50%, 16px);
+      z-index: 1500;
+      background-color: #1F1916;
+      color: #FAF6F0;
+      border: 1px solid #C68159;
+      padding: 12px 22px;
+      border-radius: 9999px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+      opacity: 0;
+      pointer-events: none;
+      max-width: calc(100vw - 32px);
+      text-align: center;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .toast-banner.visible {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    /* Backdrop & Drawers: Strictly pointer-events: none & visibility: hidden when closed */
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 1300;
+      background-color: rgba(18, 13, 11, 0.56);
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.22s ease, visibility 0.22s ease;
+    }
+
+    .drawer-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .side-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1400;
+      width: 100%;
+      max-width: 440px;
+      background-color: #FAF6F0;
+      color: #1F1916;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -12px 0 40px rgba(0, 0, 0, 0.24);
+      transform: translateX(100%);
+      visibility: hidden;
+      pointer-events: none;
+      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.28s ease;
+    }
+
+    .side-drawer.open {
+      transform: translateX(0);
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .cart-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 22px;
+      border-bottom: 1px solid #DFCFC0;
+      background-color: #F5EFE6;
+    }
+
+    .cart-header h2,
+    .cart-header span {
+      color: #1F1916;
+    }
+
+    .cart-shipping-bar {
+      padding: 12px 22px;
+      background-color: #EFE6D8;
+      border-bottom: 1px solid #DFCFC0;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #3E342E;
+    }
+
+    .shipping-progress-track {
+      width: 100%;
+      height: 6px;
+      background-color: rgba(184, 116, 79, 0.22);
+      border-radius: 9999px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .shipping-progress-fill {
+      height: 100%;
+      width: 0%;
+      background-color: #2E6F40;
+      border-radius: 9999px;
+      transition: width 0.3s ease;
+    }
+
+    .cart-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 18px 22px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .cart-step-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #DFCFC0;
+    }
+
+    .cart-step-indicator {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #B8744F;
+    }
+
+    .cart-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 9999px;
+      border: 1px solid #C68159;
+      background-color: #FFFFFF;
+      color: #1F1916;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    .cart-step2-total-pill {
+      padding: 5px 12px;
+      border-radius: 9999px;
+      background-color: rgba(184, 116, 79, 0.14);
+      color: #8E5132;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .cart-item-card {
+      background-color: #FFFFFF;
+      border: 1px solid #DFCFC0;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+
+    .qty-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 9999px;
+      border: 1px solid #C68159;
+      background-color: #FAF6F0;
+      color: #1F1916;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    .checkout-form-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #1F1916;
+      margin-bottom: 14px;
+    }
+
+    .checkout-field {
+      margin-bottom: 14px;
+    }
+
+    .checkout-field label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #3E342E;
+      margin-bottom: 6px;
+    }
+
+    .checkout-field input,
+    .checkout-field select {
+      width: 100%;
+      min-height: 46px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid #C68159;
+      background-color: #FFFFFF;
+      color: #1F1916;
+      font-size: 16px;
+    }
+
+    .checkout-field input:focus,
+    .checkout-field select:focus {
+      outline: none;
+      border-color: #B8744F;
+      box-shadow: 0 0 0 3px rgba(184, 116, 79, 0.16);
+    }
+
+    .checkout-field.has-error input,
+    .checkout-field.has-error select {
+      border-color: #C53030;
+      background-color: #FFF5F5;
+    }
+
+    /* Interactive Customer Reviews Form & Rating Controls */
+    .review-input,
+    .review-textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      background-color: var(--input-bg);
+      color: var(--text-primary);
+      opacity: 1;
+      font-size: 16px;
+      line-height: 1.45;
+      transition: background-color 0.2s ease-out, border-color 0.2s ease-out, color 0.2s ease-out;
+    }
+
+    .review-input:focus,
+    .review-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(184, 116, 79, 0.22);
+    }
+
+    .star-rating-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .star-pick-btn {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      line-height: 1;
+      color: var(--text-secondary);
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.15s ease, color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .star-pick-btn.active {
+      color: #B8744F;
+      border-color: #B8744F;
+      background-color: rgba(184, 116, 79, 0.12);
+    }
+
+    .star-pick-btn:hover {
+      transform: scale(1.06);
+      border-color: #B8744F;
+    }
+
+    .review-feedback-msg {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 10px;
+      line-height: 1.45;
+    }
+
+    .review-feedback-msg.is-error {
+      color: #C53030;
+    }
+
+    .review-feedback-msg.is-success {
+      color: #2E6F40;
+    }
+
+    .checkout-error-msg {
+      color: #C53030;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    .order-confirmation-box {
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: 14px;
+      background-color: #EBF7EE;
+      border: 1.5px solid #2E6F40;
+      color: #1E4D2B;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .order-confirmation-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #1B4727;
+    }
+
+    .cart-footer {
+      padding: 16px 22px 20px 22px;
+      border-top: 1px solid #DFCFC0;
+      background-color: #F5EFE6;
+    }
+
+    @media (max-width: 480px) {
+      .pinned-cart-btn {
+        top: 45px;
+        right: 14px;
+        height: 40px;
+        min-width: 62px;
+        padding: 0 11px;
+      }
+      .pinned-cart-btn.is-scrolled {
+        top: 14px;
+      }
+      .header-controls-right {
+        margin-right: 76px;
+        gap: 10px;
+      }
+      .header-pill-btn {
+        height: 38px;
+        min-width: 38px;
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar" id="topAnnouncementBar" data-i18n="top_banner">
+    ΔΩΡΕΑΝ ΜΕΤΑΦΟΡΙΚΑ ΑΝΩ ΤΩΝ €60
+  </div>
+
+  <!-- Pinned Top-Right Cart Button (Remains Fixed & Visible Throughout Scrolling) -->
+  <button type="button" class="pinned-cart-btn" id="cartOpenBtn" aria-label="Open shopping cart">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="pointer-events:none;">
+      <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <path d="M16 10a4 4 0 0 1-8 0"></path>
+    </svg>
+    <span class="cart-badge-count" id="cartBadgeCount">0</span>
+  </button>
+
+  <!-- Sticky Header Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="safe-container header-inner">
+      <!-- Top-Left Circular Flame & Botanical Emblem -->
+      <a href="#top" class="inline-flex items-center gap-2.5 focus:outline-none" aria-label="LUXE CANDLES Home">
+        <svg width="42" height="42" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LUXE CANDLES Emblem" style="pointer-events:none; flex-shrink:0;">
+          <defs>
+            <linearGradient id="roseCopperGrad" x1="15" y1="10" x2="105" y2="110" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#E7B596" />
+              <stop offset="48%" stop-color="#C68159" />
+              <stop offset="100%" stop-color="#8F5132" />
+            </linearGradient>
+          </defs>
+          <circle cx="60" cy="60" r="54" stroke="url(#roseCopperGrad)" stroke-width="5.5" />
+          <path d="M56 14C42 26 36 42 46 57C54 69 47 84 37 92C51 99 70 93 74 76C78 59 60 49 61 33C61.5 25 65 18 56 14Z" fill="url(#roseCopperGrad)" />
+          <path d="M36 53C28 65 29 82 41 93C36 82 37 68 44 59C40 57 38 55 36 53Z" fill="url(#roseCopperGrad)" />
+          <path d="M64 95C74 84 82 68 83 45" stroke="url(#roseCopperGrad)" stroke-width="4" stroke-linecap="round" />
+          <path d="M82 52C89 45 97 44 101 47C99 54 91 58 82 55" stroke="url(#roseCopperGrad)" stroke-width="3.2" fill="none" />
+          <path d="M80 68C88 62 96 62 99 66C96 72 88 75 80 71" stroke="url(#roseCopperGrad)" stroke-width="3.2" fill="none" />
+          <path d="M79 44C73 37 73 29 77 25C83 28 85 36 81 44" stroke="url(#roseCopperGrad)" stroke-width="3.2" fill="none" />
+        </svg>
+        <span class="font-serif-display text-lg sm:text-xl font-bold tracking-[0.16em] theme-text-primary">LUXE CANDLES</span>
+      </a>
+
+      <!-- Right Controls: Language Toggle & 3-Line Hamburger Menu -->
+      <div class="header-controls-right">
+        <button type="button" class="header-pill-btn" id="langToggleBtn" aria-label="Switch language">
+          EN
+        </button>
+        <button type="button" class="header-pill-btn" id="mobileMenuBtn" aria-label="Open menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true" style="pointer-events:none;">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero Section with Framed Brand Logo Graphic -->
+    <section class="safe-container pt-8 sm:pt-12 pb-12 sm:pb-16 text-center">
+      <div class="hero-brand-card">
+        <svg class="mx-auto mb-3" width="84" height="84" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LUXE CANDLES Logo">
+          <defs>
+            <linearGradient id="heroEmblemGrad" x1="15" y1="10" x2="105" y2="110" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#E7B596" />
+              <stop offset="50%" stop-color="#C68159" />
+              <stop offset="100%" stop-color="#8F5132" />
+            </linearGradient>
+          </defs>
+          <circle cx="60" cy="60" r="54" stroke="url(#heroEmblemGrad)" stroke-width="5" />
+          <path d="M56 14C42 26 36 42 46 57C54 69 47 84 37 92C51 99 70 93 74 76C78 59 60 49 61 33C61.5 25 65 18 56 14Z" fill="url(#heroEmblemGrad)" />
+          <path d="M36 53C28 65 29 82 41 93C36 82 37 68 44 59C40 57 38 55 36 53Z" fill="url(#heroEmblemGrad)" />
+          <path d="M64 95C74 84 82 68 83 45" stroke="url(#heroEmblemGrad)" stroke-width="3.8" stroke-linecap="round" />
+          <path d="M82 52C89 45 97 44 101 47C99 54 91 58 82 55" stroke="url(#heroEmblemGrad)" stroke-width="3" fill="none" />
+          <path d="M80 68C88 62 96 62 99 66C96 72 88 75 80 71" stroke="url(#heroEmblemGrad)" stroke-width="3" fill="none" />
+          <path d="M79 44C73 37 73 29 77 25C83 28 85 36 81 44" stroke="url(#heroEmblemGrad)" stroke-width="3" fill="none" />
+        </svg>
+        <div class="font-serif-display text-4xl sm:text-5xl font-bold tracking-[0.22em] text-[#2A211C] leading-tight">
+          LUXE
+        </div>
+        <div class="text-xs sm:text-sm font-semibold tracking-[0.42em] text-[#4A3D36] mt-1">
+          CANDLES
+        </div>
+        <div class="text-[11px] font-semibold tracking-[0.16em] uppercase text-[#8F5132] mt-3" data-i18n="footer_tagline">
+          Atelier Χειροποίητων Αρωματικών Κεριών
+        </div>
+      </div>
+
+      <p class="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-[#B8744F] mb-3" data-i18n="hero_eyebrow">
+        ΧΕΙΡΟΠΟΙΗΤΑ ΑΡΩΜΑΤΙΚΑ ΚΕΡΙΑ • ΠΑΦΟΣ, ΚΥΠΡΟΣ
+      </p>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight max-w-3xl mx-auto mb-5" data-i18n="hero_title">
+        Αρώματα που Μεταμορφώνουν τον Χώρο σας
+      </h1>
+      <p class="text-base sm:text-lg theme-text-secondary max-w-2xl mx-auto mb-8 leading-relaxed" data-i18n="hero_subtitle">
+        100% φυσικό κερί σόγιας, εκλεκτά αρωματικά έλαια και οικολογικές συσκευασίες χωρίς πλαστικό, φτιαγμένα στο χέρι στην Κύπρο με αγάπη στη λεπτομέρεια.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+        <a href="#collection" class="btn-accent px-7 py-3.5 rounded-full text-sm sm:text-base font-semibold shadow-md" data-i18n="hero_cta_primary">
+          Ανακαλύψτε τη Συλλογή
+        </a>
+        <a href="#shipping" class="px-7 py-3.5 rounded-full text-sm sm:text-base font-semibold border border-[#B8744F]/45 hover:border-[#B8744F] transition" data-i18n="hero_cta_secondary">
+          AKIS EXPRESS &amp; ACS Courier
+        </a>
+      </div>
+    </section>
+
+    <!-- Product Collection Section (All 5 Categories, Exact 21 Monolingual Fragrances, Complete Product Images) -->
+    <section id="collection" class="safe-container py-10 sm:py-14">
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <span class="text-xs font-bold tracking-[0.2em] uppercase text-[#B8744F]" data-i18n="collection_eyebrow">Η ΣΥΛΛΟΓΗ ΜΑΣ</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mt-2 mb-3" data-i18n="collection_title">Χειροποίητες Δημιουργίες</h2>
+        <p class="text-sm sm:text-base theme-text-secondary" data-i18n="collection_desc">
+          Επιλέξτε κατηγορία, μέγεθος και το αγαπημένο σας άρωμα από τη συλλογή των 21 εκλεκτών αρωμάτων μας.
+        </p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="flex flex-wrap items-center justify-center gap-2.5 mb-10" id="categoryFilterBar">
+        <button type="button" class="filter-pill active" data-filter="all" data-i18n="filter_all">Όλα τα Προϊόντα</button>
+        <button type="button" class="filter-pill" data-filter="candles" data-i18n="cat_candles">Αρωματικά Κεριά Σόγιας</button>
+        <button type="button" class="filter-pill" data-filter="diffusers" data-i18n="cat_diffusers">Diffusers</button>
+        <button type="button" class="filter-pill" data-filter="sachets" data-i18n="cat_sachets">Αρωματικά Ντουλάπας από Κερί</button>
+        <button type="button" class="filter-pill" data-filter="melts" data-i18n="cat_melts">Wax Melts</button>
+        <button type="button" class="filter-pill" data-filter="bouquets" data-i18n="cat_bouquets">Ανθοδέσμες Κεριών</button>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-7">
+        <!-- Category 1: Soy Wax Candles -->
+        <article class="theme-surface product-card rounded-2xl overflow-hidden flex flex-col" data-category="candles">
+          <div class="product-media-box">
+            <img
+              src="https://raw.githubusercontent.com/petrosxatzi30-cmd/LuxeCandles/main/IMG_3285.jpeg"
+              onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/petrosxatzi30-cmd/LuxeCandles/main/IMG_3343.jpeg';"
+              alt="LUXE CANDLES Soy Wax Candles"
+              class="product-media-img"
+              style="display: block; width: 100%; height: 100%; object-fit: cover;"
+              loading="eager"
+            />
+            <span class="absolute top-3 left-3 bg-[#1F1916]/85 text-[#FAF6F0] text-xs font-semibold px-3 py-1 rounded-full" data-i18n="badge_soy">
+              100% Κερί Σόγιας
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-start justify-between gap-3 mb-2">
+              <h3 class="text-2xl font-bold" data-i18n="cat_candles">Αρωματικά Κεριά Σόγιας</h3>
+              <span class="text-xl font-bold text-[#B8744F] shrink-0" id="price-candles">€12.00</span>
+            </div>
+            <p class="text-sm theme-text-secondary mb-5 leading-relaxed" data-i18n="desc_candles">
+              Χειροποίητα κεριά από 100% φυσικό κερί σόγιας σε ματ μαύρο βαζάκι με ξύλινο καπάκι και βαμβακερό φυτίλι, για καθαρή και μακράς διάρκειας καύση.
+            </p>
+
+            <div class="space-y-4 mt-auto">
+              <div>
+                <label for="size-candles" class="block text-xs font-bold uppercase tracking-wider mb-1.5" data-i18n="label_size">Μέγεθος / Επιλογή</label>
+                <select id="size-candles" class="luxe-select size-select" data-product="candles">
+                  <option value="130ml" data-price="12" data-label-el="130ml — €12.00" data-label-en="130ml — €12.00">130ml — €12.00</option>
+                  <option value="210ml" data-price="18" data-label-el="210ml — €18.00" data-label-en="210ml — €18.00">210ml — €18.00</option>
+                  <option value="330ml" data-price="24" data-label-el="330ml — €24.00" data-label-en="330ml — €24.00">330ml — €24.00</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="scent-candles" class="block text-xs font-bold uppercase tracking-wider mb-1.5" data-i18n="label_scent">Άρωμα (21 Επιλογές)</label>
+                <select id="scent-candles" class="luxe-select scent-select" data-product="candles">
+                  <option value="0">Ανατολίτικα Μπαχαρικά</option>
+                  <option value="1">D&amp;G</option>
+                  <option value="2">Μελομακάρονο</option>
+                  <option value="3">Κουραμπιέδες</option>
+                  <option value="4">Λάιμ</option>
+                  <option value="5">Ροδάκινο</option>
+                  <option value="6">Κόκκινο Σταφύλι</option>
+                  <option value="7">Κεράσι</option>
+                  <option value="8">Τσουρέκι</option>
+                  <option value="9">Αγάπη</option>
+                  <option value="10">Μάνγκο</option>
+                  <option value="11">Ρόδι</option>
+                  <option value="12">Σοκολάτα Φραμπουάζ</option>
+                  <option value="13">Τζίντζερ</option>
+                  <option value="14">Μαύρη Καρύδα</option>
+                  <option value="15">Μήλο &amp; Κανέλα</option>
+                  <option value="16">Μπαχαρικά Κολοκύθας</option>
+                  <option value="17">Κασμίρ</option>
+                  <option value="18">Πορτοκάλι</option>
+                  <option value="19">Κράνμπερι</option>
+                  <option value="20">Καφές</option>
+                </select>
+              </div>
+
+              <button type="button" class="btn-accent w-full py-3.5 px-5 rounded-xl font-semibold text-sm sm:text-base add-to-cart-btn" data-product="candles" data-i18n="btn_add_cart">
+                Προσθήκη στο Καλάθι
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Category 2: Room Diffusers -->
+        <article class="theme-surface product-card rounded-2xl overflow-hidden flex flex-col" data-category="diffusers">
+          <div class="product-media-box">
+            <img
+              src="https://raw.githubusercontent.com/petrosxatzi30-cmd/LuxeCandles/main/IMG_3343.jpeg"
+              onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/petrosxatzi30-cmd/LuxeCandles/main/IMG_3285.jpeg';"
+              alt="LUXE CANDLES Room Diffusers"
+              class="product-media-img"
+              style="display: block; width: 100%; height: 100%; object-fit: cover;"
+              loading="lazy"
+            />
+            <span class="absolute top-3 left-3 bg-[#1F1916]/85 text-[#FAF6F0] text-xs font-semibold px-3 py-1 rounded-full" data-i18n="badge_diffusers">
+              Συνεχής Αρωματισμός
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-start justify-between gap-3 mb-2">
+              <h3 class="text-2xl font-bold" data-i18n="cat_diffusers">Diffusers</h3>
+              <span class="text-xl font-bold text-[#B8744F] shrink-0" id="price-diffusers">€12.00</span>
+            </div>
+            <p class="text-sm theme-text-secondary mb-5 leading-relaxed" data-i18n="desc_diffusers">
+              Κομψά γυάλινα μπουκάλια με fiber sticks για διακριτικό, συνεχή αρωματισμό σε κάθε δωμάτιο του σπιτιού ή του γραφείου.
+            </p>
+
+            <div class="space-y-4 mt-auto">
+              <div>
+                <label for="size-diffusers" class="block text-xs font-bold uppercase tracking-wider mb-1.5" data-i18n="label_size">Μέγεθος / Επιλογή</label>
+                <select id="size-diffusers" class="luxe-select size-select" data-product="diffusers">
+                  <option value="50ml" data-price="12" data-label-el="50ml — €12.00" data-label-en="50ml — €12.00">50ml — €12.00</option>
+                  <option value="100ml" data-price="20" data-label-el="100ml — €20.00" data-label-en="100ml — €20.00">100ml — €20.00</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="scent-diffusers" class="block text-xs font-bold uppercase tracking-wider mb-1.5" data-i18n="label_scent">Άρωμα (21 Επιλογές)</label>
+                <select id="scent-diffusers" class="luxe-select scent-select" data-product="diffusers">
+                  <option value="0">Ανατολίτικα Μπαχαρικά</option>
+                  <option value="1">D&amp;G</option>
+                  <option value="2">Μελομακάρονο</option>
+                  <option value="3">Κουραμπιέδες</option>
+                  <option value="4">Λάιμ</option>
+                  <option value="5">Ροδάκινο</option>
+                  <option value="6">Κόκκινο Σταφύλι</option>
+                  <option value="7">Κεράσι</option>
+                  <option value="8">Τσουρέκι</option>
+                  <option value="9">Αγάπη</option>
+                  <option value="10">Μάνγκο</option>
+                  <option value="11">Ρόδι</option>
+                  <option value="12">Σοκολάτα Φραμπουάζ</option>
+                  <option value="13">Τζίντζερ</option>
+                  <option value="14">Μαύρη Καρύδα</option>
+                  <option value="15">Μήλο &amp; Κανέλα</option>
+                  <option value="16">Μπαχαρικά Κολοκύθας</option>
+                  <option value="17">Κασμίρ</option>
+                  <option value="18">Πορτοκάλι</option>
+                  <option value="19">Κράνμπερι</option>
+                  <option value="20">Καφές</option>
+                </select>
+              </div>
+
+              <button type="button" class="btn-accent w-full py-3.5 px-5 rounded-xl font-semibold text-sm sm:text-base add-to-cart-btn" data-product="diffusers" data-i18n="btn_add_cart">
+                Προσθήκη στο Καλάθι
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Category 3: Wax Sachets -->
+        <article class="theme-surface product-card rounded-2xl overflow-hidden flex flex-col" data-category="sachets">
+          <div class="product-media-box">
+            <img
+              src="https://raw.githubusercontent.com/petrosxatzi30-cmd/LuxeCandless/main/sachets-duo.jpg"
+              onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/petrosxatzi30-cmd/LuxeCandles/main/IMG_3346.jpeg';"
+              alt="LUXE CANDLES Wax Sachets"
+              class="product-media-img"
+              style="display: block; width: 100%; height: 100%; object-fit: cover;"
+              loading="eager"
+            />
+            <span class="absolute top-3 left-3 bg-[#1F1916]/85 text-[#FAF6F0] text-xs font-semibold px-3 py-1 rounded-full" data-i18n="badge_sachets">
+              Για Ντουλάπες &amp; Συρτάρια
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-start justify-between gap-3 mb-2">
+              <h3 class="text-2xl font-bold" data-i18n="cat_sachets">Αρωματικά Ντουλάπας από Κερί</h3>
+              <span class="text-xl font-bold text-[#B8744F] shrink-0" id="price-sachets">€8.50</span>
+            </div>
+            <p class="text-sm theme-text-secondary mb-5 leading-relaxed" data-i18n="desc_sachets">
+              Χειροποίητες ταμπλέτες κεριού σόγιας με κορδέλα, ιδανικές για να χαρίζουν φρεσκάδα σε ντουλάπες και συρτάρια.
+            </p>
+
+            <div class="space-y-4 mt-auto">
+              <div>
+                <label for="size-sachets" class="block text-xs font-bold uppercase tracking-wider mb-1.5" data-i18n="label_size">Μέγεθος / Επιλογή</label>
+                <select id="size-sachets" class="luxe-select size-select" data-product="sachets">
+                  <option value="Set of 2" data-price="8.5" data-label-el="Σετ 2 τμχ — €8.50" data-label-en="Set of 2 — €8.50">Σετ 2 τμχ — €8.50</option>
+                  <option value="Set of 4" data-price="12" data-label-el="Σετ 4 τμχ — €12.00" data-label-en="Set of 4 — €12.00">Σετ 4 τμχ — €12.00</option>
+                  <option value="Set of 6" data-price="16" data-label-el="Σετ 6 τμχ — €16.00" data-label-en="Set of 6 — €16.00">Σετ 6 τμχ — €16.00</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="scent-sachets" class="block text-xs font-bold uppercase tracking-wider mb-1.5" data-i18n="label_scent">Άρωμα (21 Επιλογές)</label>
+                <select id="scent-sachets" class="luxe-select scent-select" data-product="sachets"></select>
+              </div>
+
+              <button type="button" class="btn-accent w-full py-3.5 px-5 rounded-xl font-semibold text-sm sm:text-base add-to-cart-btn" data-product="sachets" data-i18n="btn_add_cart">
+                Προσθήκη στο Καλάθι
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Category 4: Wax Melts -->
+        <article class="theme-surface product-card rounded-2xl overflow-hidden flex flex-col" data-category="melts">
+          <div class="product-media-box">
+            <img
+              src="https://raw.githubusercontent.com/petrosxatzi30-cmd/LuxeCandles/main/IMG_3338.jpeg"
+              onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/petrosxatzi30-cmd/LuxeCandles/main/IMG_3285.jpeg';"
+              alt="LUXE CANDLES Wax Melts"
+              class="product-media-img"
+              style="display: block; width: 100%; height: 100%; object-fit: cover;"
+              loading="lazy"
+            />
+            <span class="absolute top-3 left-3 bg-[#1F1916]/85 text-[#FAF6F0] text-xs font-semibold px-3 py-1 rounded-full" data-i18n="badge_melts">
+              100% Eco • Χωρίς Πλαστικό
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-start justify-between gap-3 mb-2">
+              <h3 class="text-2xl font-bold" data-i18n="cat_melts">Wax Melts</h3>
+              <span class="text-xl font-bold text-[#B8744F] shrink-0" id="price-melts">€7.50</span>
+            </div>
+            <p class="text-sm theme-text-secondary mb-5 leading-relaxed" data-i18n="desc_melts">
+              Έντονα αρωματικά melts από 100% κερί σόγιας σε οικολογική χάρτινη συσκευασία χωρίς καθόλου πλαστικό, για καυστήρες αιθέριων ελαίων.
+            </p>
+
+            <div class="space-y-4 mt-auto">
+              <div>
+                <label for="size-melts" class="block text-xs font-bold uppercase tracking-wider mb-1.5" data-i18n="label_size">Μέγεθος / Επιλογή</label>
+                <select id="size-melts" class="luxe-select size-select" data-product="melts">
+                  <option value="60g Pack" data-price="7.5" data-label-el="Συσκευασία 60g — €7.50" data-label-en="60g Pack — €7.50">Συσκευασία 60g — €7.50</option>
+                  <option value="100g Pack" data-price="11" data-label-el="Συσκευασία 100g — €11.00" data-label-en="100g Pack — €11.00">Συσκευασία 100g — €11.00</option>
+                  <option value="150g Pack" data-price="14.5" data-label-el="Συσκευασία 150g — €14.50" data-label-en="150g Pack — €14.50">Συσκευασία 150g — €14.50</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="scent-melts" class="block text-xs font-bold uppercase tracking-wider mb-1.5" data-i18n="label_scent">Άρωμα (21 Επιλογές)</label>
+                <select id="scent-melts" class="luxe-select scent-select" data-product="melts"></select>
+              </div>
+
+              <button type="button" class="btn-accent w-full py-3.5 px-5 rounded-xl font-semibold text-sm sm:text-base add-to-cart-btn" data-product="melts" data-i18n="btn_add_cart">
+                Προσθήκη στο Καλάθι
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Category 5: Candle Bouquets -->
+        <article class="theme-surface product-card rounded-2xl overflow-hidden flex flex-col" data-category="bouquets">
+          <div class="product-media-box media-carousel" data-carousel="bouquets">
+            <div class="media-carousel-track" style="transform: translateX(0%);">
+              <div class="media-carousel-slide">
+                <img
+                  src="https://raw.githubusercontent.com/petrosxatzi30-cmd/LuxeCandles/main/IMG_3342.jpeg"
+                  alt="LUXE CANDLES Candle Bouquet Arrangement 1"
+                  class="product-media-img"
+                  style="display: block; width: 100%; height: 100%; object-fit: cover;"
+                  draggable="false"
+                  loading="eager"
+                />
+              </div>
+              <div class="media-carousel-slide">
+                <img
+                  src="https://raw.githubusercontent.com/petrosxatzi30-cmd/LuxeCandles/main/IMG_3340.jpeg"
+                  alt="LUXE CANDLES Candle Bouquet Arrangement 2"
+                  class="product-media-img"
+                  style="display: block; width: 100%; height: 100%; object-fit: cover;"
+                  draggable="false"
+                  loading="eager"
+                />
+              </div>
+            </div>
+            <span class="absolute top-3 left-3 z-10 bg-[#1F1916]/85 text-[#FAF6F0] text-xs font-semibold px-3 py-1 rounded-full" data-i18n="badge_bouquets">
+              Χειροποίητες Συνθέσεις
+            </span>
+            <button type="button" class="carousel-nav-btn prev" aria-label="Previous photo">‹</button>
+            <button type="button" class="carousel-nav-btn next" aria-label="Next photo">›</button>
+            <div class="carousel-dots" role="tablist" aria-label="Candle Bouquets gallery">
+              <button type="button" class="carousel-dot active" aria-label="Photo 1"></button>
+              <button type="button" class="carousel-dot" aria-label="Photo 2"></button>
+            </div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
+            <div class="flex items-start justify-between gap-3 mb-2">
+              <h3 class="text-2xl font-bold" data-i18n="cat_bouquets">Ανθοδέσμες Κεριών</h3>
+              <span class="text-xl font-bold text-[#B8744F] shrink-0" id="price-bouquets">€25.00</span>
+            </div>
+            <p class="text-sm theme-text-secondary mb-5 leading-relaxed" data-i18n="desc_bouquets">
+              Χειροποίητες ανθοδέσμες από αρωματικά κεριά σόγιας σμιλεμένα σε σχήμα λουλουδιών, ιδανικές για ξεχωριστές στιγμές και διακόσμηση χώρου.
+            </p>
+
+            <div class="space-y-4 mt-auto">
+              <div>
+                <label for="size-bouquets" class="block text-xs font-bold uppercase tracking-wider mb-1.5" data-i18n="label_size">Μέγεθος / Επιλογή</label>
+                <select id="size-bouquets" class="luxe-select size-select" data-product="bouquets">
+                  <option value="Small Bouquet" data-price="25" data-label-el="Μικρή Ανθοδέσμη — €25.00" data-label-en="Small Bouquet — €25.00">Μικρή Ανθοδέσμη — €25.00</option>
+                  <option value="Medium Bouquet" data-price="35" data-label-el="Μεσαία Ανθοδέσμη — €35.00" data-label-en="Medium Bouquet — €35.00">Μεσαία Ανθοδέσμη — €35.00</option>
+                  <option value="Large Bouquet" data-price="45" data-label-el="Μεγάλη Ανθοδέσμη — €45.00" data-label-en="Large Bouquet — €45.00">Μεγάλη Ανθοδέσμη — €45.00</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="scent-bouquets" class="block text-xs font-bold uppercase tracking-wider mb-1.5" data-i18n="label_scent">Άρωμα (21 Επιλογές)</label>
+                <select id="scent-bouquets" class="luxe-select scent-select" data-product="bouquets"></select>
+              </div>
+
+              <button type="button" class="btn-accent w-full py-3.5 px-5 rounded-xl font-semibold text-sm sm:text-base add-to-cart-btn" data-product="bouquets" data-i18n="btn_add_cart">
+                Προσθήκη στο Καλάθι
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Interactive 21 Fragrances Directory -->
+    <section id="scents-directory" class="safe-container py-10 sm:py-14">
+      <div class="theme-surface rounded-3xl p-6 sm:p-10 text-center">
+        <span class="text-xs font-bold tracking-[0.2em] uppercase text-[#B8744F]" data-i18n="scents_dir_eyebrow">21 ΜΟΝΑΔΙΚΑ ΑΡΩΜΑΤΑ</span>
+        <h2 class="text-3xl sm:text-4xl font-bold mt-2 mb-3" data-i18n="scents_dir_title">Επιλέξτε Άρωμα για Όλα τα Προϊόντα</h2>
+        <p class="text-sm sm:text-base theme-text-secondary max-w-2xl mx-auto mb-7" data-i18n="scents_dir_desc">
+          Πατήστε σε οποιοδήποτε από τα 21 αρώματά μας για να το προεπιλέξετε αυτόματα σε όλες τις κατηγορίες.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-2.5" id="scentDirectoryChips"></div>
+      </div>
+    </section>
+
+    <!-- Cyprus-Wide AKIS EXPRESS & ACS Courier Shipping Section -->
+    <section id="shipping" class="safe-container py-10 sm:py-14">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold tracking-[0.2em] uppercase text-[#B8744F]" data-i18n="ship_eyebrow">ΠΑΓΚΥΠΡΙΑ ΠΑΡΑΔΟΣΗ</span>
+        <h2 class="text-3xl sm:text-4xl font-bold mt-2 mb-3" data-i18n="ship_title">Αποστολές σε Όλη την Κύπρο με AKIS EXPRESS ή ACS Courier</h2>
+        <p class="text-sm sm:text-base theme-text-secondary" data-i18n="ship_subtitle">
+          Επιλέξτε ανάμεσα σε AKIS EXPRESS και ACS Courier με ενιαία χρέωση αποστολής για όλες τις επαρχίες (Πάφος, Λεμεσός, Λάρνακα, Λευκωσία, Αμμόχωστος).
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="theme-surface rounded-2xl p-6 text-center">
+          <div class="w-12 h-12 rounded-full bg-[#B8744F]/15 text-[#B8744F] flex items-center justify-center mx-auto mb-4 font-bold text-lg">€5</div>
+          <h3 class="text-2xl font-bold mb-2" data-i18n="ship_card1_title">Παραγγελίες κάτω των €60</h3>
+          <p class="text-sm theme-text-secondary leading-relaxed" data-i18n="ship_card1_desc">
+            Σταθερό κόστος μεταφορικών €5.00 με AKIS EXPRESS ή ACS Courier για όλες τις επαρχίες της Κύπρου, συμπεριλαμβανομένης της Πάφου.
+          </p>
+        </div>
+
+        <div class="theme-surface rounded-2xl p-6 text-center">
+          <div class="w-12 h-12 rounded-full bg-[#2E6F40]/15 text-[#2E6F40] flex items-center justify-center mx-auto mb-4 font-bold text-lg">€0</div>
+          <h3 class="text-2xl font-bold mb-2" data-i18n="ship_card2_title">Δωρεάν Άνω των €60</h3>
+          <p class="text-sm theme-text-secondary leading-relaxed" data-i18n="ship_card2_desc">
+            Για αγορές €60.00 και άνω, τα μεταφορικά με AKIS EXPRESS ή ACS Courier είναι εντελώς δωρεάν (€0.00) παγκύπρια.
+          </p>
+        </div>
+
+        <div class="theme-surface rounded-2xl p-6 text-center">
+          <div class="w-12 h-12 rounded-full bg-[#B8744F]/15 text-[#B8744F] flex items-center justify-center mx-auto mb-4 font-bold text-lg">1–2</div>
+          <h3 class="text-2xl font-bold mb-2" data-i18n="ship_card3_title">Γρήγορη Παράδοση 1–2 Ημέρες</h3>
+          <p class="text-sm theme-text-secondary leading-relaxed" data-i18n="ship_card3_desc">
+            Άμεση προετοιμασία της παραγγελίας σας στο εργαστήριό μας στην Πάφο και αποστολή με το courier της επιλογής σας.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section id="reviews" class="safe-container py-10 sm:py-14">
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <span class="text-xs font-bold tracking-[0.2em] uppercase text-[#B8744F]" data-i18n="rev_eyebrow">ΚΡΙΤΙΚΕΣ ΠΕΛΑΤΩΝ</span>
+        <h2 class="text-3xl sm:text-4xl font-bold mt-2 mb-3" data-i18n="rev_title">Τι Λένε οι Πελάτες μας στην Κύπρο</h2>
+        <div class="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-2 rounded-full theme-surface-muted text-xs sm:text-sm font-semibold">
+          <span class="text-[#B8744F] text-base" id="reviewsSummaryStars">★★★★★</span>
+          <span id="reviewsSummaryText">5.0 / 5 (3 αξιολογήσεις)</span>
+        </div>
+      </div>
+
+      <!-- Reviews Grid (Dynamically Updated & Persisted in localStorage) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10" id="reviewsGrid"></div>
+
+      <!-- Live Interactive Review Submission Form (GR & EN) -->
+      <div class="theme-surface rounded-3xl p-6 sm:p-8 max-w-3xl mx-auto">
+        <div class="text-center mb-6">
+          <span class="text-xs font-bold tracking-[0.18em] uppercase text-[#B8744F]" data-i18n="rev_form_eyebrow">ΜΟΙΡΑΣΤΕΙΤΕ ΤΗΝ ΕΜΠΕΙΡΙΑ ΣΑΣ</span>
+          <h3 class="text-2xl sm:text-3xl font-bold mt-1" data-i18n="rev_form_title">Αφήστε την Αξιολόγησή σας</h3>
+          <p class="text-xs sm:text-sm theme-text-secondary mt-1.5" data-i18n="rev_form_desc">
+            Παραγγείλατε από το LUXE CANDLES; Γράψτε τη γνώμη σας για το άρωμα και το προϊόν που επιλέξατε.
+          </p>
+        </div>
+
+        <form id="customerReviewForm" novalidate class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="reviewAuthorName" class="block text-xs font-bold uppercase tracking-wider mb-1.5" data-i18n="rev_label_name">
+                Όνομα *
+              </label>
+              <input
+                type="text"
+                id="reviewAuthorName"
+                name="reviewAuthorName"
+                class="review-input"
+                required
+                placeholder="π.χ. Σοφία Ν., Πάφος"
+              />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider mb-1.5" data-i18n="rev_label_rating">
+                Βαθμολογία (1–5 Αστέρια) *
+              </label>
+              <div class="star-rating-group" id="reviewStarSelector" role="radiogroup" aria-label="Star Rating">
+                <button type="button" class="star-pick-btn active" data-star="1" aria-label="1 star">★</button>
+                <button type="button" class="star-pick-btn active" data-star="2" aria-label="2 stars">★</button>
+                <button type="button" class="star-pick-btn active" data-star="3" aria-label="3 stars">★</button>
+                <button type="button" class="star-pick-btn active" data-star="4" aria-label="4 stars">★</button>
+                <button type="button" class="star-pick-btn active" data-star="5" aria-label="5 stars">★</button>
+              </div>
+              <input type="hidden" id="reviewRatingValue" value="5" />
+            </div>
+          </div>
+
+          <div>
+            <label for="reviewProductScent" class="block text-xs font-bold uppercase tracking-wider mb-1.5" data-i18n="rev_label_item">
+              Προϊόν / Άρωμα που Παραγγείλατε *
+            </label>
+            <select id="reviewProductScent" name="reviewProductScent" class="luxe-select" required></select>
+          </div>
+
+          <div>
+            <label for="reviewCommentText" class="block text-xs font-bold uppercase tracking-wider mb-1.5" data-i18n="rev_label_comment">
+              Η αξιολόγησή σας *
+            </label>
+            <textarea
+              id="reviewCommentText"
+              name="reviewCommentText"
+              rows="3"
+              class="review-textarea"
+              required
+              placeholder="Γράψτε λίγα λόγια για τη διάρκεια και το άρωμα..."
+            ></textarea>
+          </div>
+
+          <div id="reviewFormFeedback" class="review-feedback-msg" role="status" aria-live="polite"></div>
+
+          <button type="submit" id="submitReviewBtn" class="btn-accent w-full sm:w-auto px-8 py-3.5 rounded-xl font-semibold text-sm sm:text-base" data-i18n="rev_btn_submit">
+            Δημοσίευση Αξιολόγησης
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="safe-container py-10 sm:py-16">
+      <div class="theme-surface rounded-3xl p-7 sm:p-10 text-center max-w-3xl mx-auto">
+        <span class="text-xs font-bold tracking-[0.2em] uppercase text-[#B8744F]" data-i18n="contact_eyebrow">ΕΠΙΚΟΙΝΩΝΙΑ</span>
+        <h2 class="text-3xl sm:text-4xl font-bold mt-2 mb-3" data-i18n="contact_title">Εργαστήριο LUXE CANDLES</h2>
+        <p class="text-sm sm:text-base theme-text-secondary mb-7 leading-relaxed" data-i18n="contact_desc">
+          Έχετε απορίες για τα αρώματα ή θέλετε ειδική παραγγελία για δώρα και εκδηλώσεις; Επικοινωνήστε μαζί μας.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+          <div class="theme-surface-muted rounded-2xl p-4">
+            <p class="text-xs font-bold uppercase tracking-wider text-[#B8744F] mb-1" data-i18n="contact_loc_label">Τοποθεσία</p>
+            <p class="font-semibold theme-text-primary" data-i18n="contact_loc_val">Πάφος, Κύπρος</p>
+          </div>
+          <div class="theme-surface-muted rounded-2xl p-4">
+            <p class="text-xs font-bold uppercase tracking-wider text-[#B8744F] mb-1">Email</p>
+            <a href="mailto:luxeCandles.cy@gmail.com" class="font-semibold theme-text-primary hover:text-[#B8744F] break-all">luxeCandles.cy@gmail.com</a>
+          </div>
+          <div class="theme-surface-muted rounded-2xl p-4">
+            <p class="text-xs font-bold uppercase tracking-wider text-[#B8744F] mb-1">Instagram</p>
+            <p class="font-semibold theme-text-primary">@luxecandles.com</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-10 mt-6" style="border-top: 1px solid var(--border-color);">
+    <div class="safe-container grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <div class="font-serif-display text-2xl font-bold tracking-[0.18em] mb-1 theme-text-primary">LUXE CANDLES</div>
+        <p class="text-xs font-semibold uppercase tracking-[0.14em] text-[#B8744F] mb-2" data-i18n="footer_tagline">
+          Atelier Χειροποίητων Αρωματικών Κεριών
+        </p>
+        <p class="text-xs theme-text-secondary leading-relaxed" data-i18n="footer_about">
+          Χειροποίητα αρωματικά κεριά σόγιας, diffusers, αρωματικά ντουλάπας, οικολογικά wax melts και ανθοδέσμες κεριών φτιαγμένα στην Πάφο, Κύπρος.
+        </p>
+      </div>
+
+      <div>
+        <p class="text-xs font-bold uppercase tracking-wider text-[#B8744F] mb-3" data-i18n="footer_cats_title">Κατηγορίες</p>
+        <ul class="space-y-2 text-xs theme-text-secondary">
+          <li><a href="#collection" class="hover:text-[#B8744F]" data-i18n="cat_candles">Αρωματικά Κεριά Σόγιας</a></li>
+          <li><a href="#collection" class="hover:text-[#B8744F]" data-i18n="cat_diffusers">Diffusers</a></li>
+          <li><a href="#collection" class="hover:text-[#B8744F]" data-i18n="cat_sachets">Αρωματικά Ντουλάπας από Κερί</a></li>
+          <li><a href="#collection" class="hover:text-[#B8744F]" data-i18n="cat_melts">Wax Melts</a></li>
+          <li><a href="#collection" class="hover:text-[#B8744F]" data-i18n="cat_bouquets">Ανθοδέσμες Κεριών</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-xs font-bold uppercase tracking-wider text-[#B8744F] mb-3" data-i18n="footer_info_title">Πληροφορίες</p>
+        <ul class="space-y-2 text-xs theme-text-secondary">
+          <li data-i18n="contact_loc_val">Πάφος, Κύπρος</li>
+          <li data-i18n="footer_ship">Παγκύπρια Παράδοση με AKIS EXPRESS ή ACS Courier (€5 κάτω των €60 • Δωρεάν άνω των €60)</li>
+          <li>luxeCandles.cy@gmail.com • @luxecandles.com</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Non-Intrusive Toast Notification -->
+  <div class="toast-banner" id="toastBanner" role="status" aria-live="polite"></div>
+
+  <!-- Backdrop for Mobile Menu & Cart Drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <!-- Navigation Drawer (3-Line Menu) -->
+  <aside class="side-drawer" id="mobileMenuDrawer" aria-label="Navigation Menu">
+    <div class="cart-header">
+      <span class="font-serif-display text-xl font-bold tracking-[0.16em]">LUXE CANDLES</span>
+      <button type="button" class="qty-btn" id="mobileMenuCloseBtn" aria-label="Close menu">✕</button>
+    </div>
+    <div class="p-6 flex-1 overflow-y-auto">
+      <nav class="flex flex-col gap-3 text-base font-medium">
+        <a href="#collection" class="mobile-nav-link py-2.5 border-b border-[#B8744F]/15 hover:text-[#B8744F]" data-i18n="menu_collection">Συλλογή Προϊόντων</a>
+        <a href="#scents-directory" class="mobile-nav-link py-2.5 border-b border-[#B8744F]/15 hover:text-[#B8744F]" data-i18n="menu_scents">Τα 21 Αρώματά μας</a>
+        <a href="#shipping" class="mobile-nav-link py-2.5 border-b border-[#B8744F]/15 hover:text-[#B8744F]" data-i18n="menu_shipping">Αποστολές • AKIS EXPRESS &amp; ACS</a>
+        <a href="#reviews" class="mobile-nav-link py-2.5 border-b border-[#B8744F]/15 hover:text-[#B8744F]" data-i18n="menu_reviews">Αξιολογήσεις Πελατών</a>
+        <a href="#contact" class="mobile-nav-link py-2.5 border-b border-[#B8744F]/15 hover:text-[#B8744F]" data-i18n="menu_contact">Επικοινωνία • Πάφος</a>
+      </nav>
+      <div class="mt-8 text-xs text-[#5C5149] space-y-1.5">
+        <p class="font-semibold text-[#1F1916]">luxeCandles.cy@gmail.com</p>
+        <p>@luxecandles.com • <span data-i18n="contact_loc_val">Πάφος, Κύπρος</span></p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 2-Step Cart & Checkout Drawer -->
+  <aside class="side-drawer" id="cartDrawer" aria-label="Shopping Cart">
+    <div class="cart-header">
+      <h2 class="font-serif-display text-2xl font-bold" data-i18n="cart_drawer_title">Το Καλάθι Σας</h2>
+      <button type="button" class="qty-btn" id="cartCloseBtn" aria-label="Close cart">✕</button>
+    </div>
+
+    <div class="cart-shipping-bar">
+      <div id="cartShippingNotice">AKIS EXPRESS / ACS Courier: €5.00 κάτω των €60.00 • Δωρεάν άνω των €60.00 (Παγκύπρια).</div>
+      <div class="shipping-progress-track">
+        <div class="shipping-progress-fill" id="shippingProgressFill"></div>
+      </div>
+    </div>
+
+    <div class="cart-body" id="cartBodyContainer">
+      <!-- Step 1: Cart Items & Totals View -->
+      <div class="cart-step-panel" id="cartStep1View">
+        <div class="cart-step-header">
+          <span class="cart-step-indicator" data-i18n="step1_indicator">Βήμα 1 από 2 • Προϊόντα</span>
+        </div>
+        <div id="cartItemsContainer">
+          <p class="text-center text-sm text-[#5C5149] mt-10" data-i18n="cart_empty">Το καλάθι σας είναι άδειο.</p>
+        </div>
+      </div>
+
+      <!-- Step 2: Recipient Details & Courier Selection View -->
+      <div class="cart-step-panel" id="cartStep2View" hidden>
+        <div class="cart-step-header">
+          <button type="button" class="cart-back-btn" id="backToStep1Btn">
+            <span aria-hidden="true">←</span>
+            <span data-i18n="btn_back">Πίσω</span>
+          </button>
+          <span class="cart-step2-total-pill" id="step2TotalPill">€0.00</span>
+        </div>
+
+        <form class="checkout-form" id="checkoutForm" novalidate>
+          <div class="checkout-form-title" data-i18n="form_section_title">Στοιχεία Παραλήπτη &amp; Courier</div>
+
+          <div class="checkout-field" id="fieldFullName">
+            <label for="recipientName" data-i18n="label_recipient_name">Ονοματεπώνυμο Παραλήπτη *</label>
+            <input type="text" id="recipientName" name="recipientName" required autocomplete="name" placeholder="π.χ. Μαρία Παπαδοπούλου" />
+          </div>
+
+          <div class="checkout-field" id="fieldPhone">
+            <label for="recipientPhone" data-i18n="label_recipient_phone">Τηλέφωνο *</label>
+            <input type="tel" id="recipientPhone" name="recipientPhone" required autocomplete="tel" placeholder="π.χ. 99 123456" />
+          </div>
+
+          <div class="checkout-field" id="fieldCourier">
+            <label for="shippingCourier" data-i18n="label_shipping_courier">Επιλογή Courier *</label>
+            <select id="shippingCourier" name="shippingCourier" required>
+              <option value="AKIS EXPRESS">AKIS EXPRESS</option>
+              <option value="ACS Courier">ACS Courier</option>
+            </select>
+          </div>
+
+          <div class="checkout-field" id="fieldDistrict">
+            <label for="recipientDistrict" data-i18n="label_recipient_district">Επαρχία *</label>
+            <select id="recipientDistrict" name="recipientDistrict" required>
+              <option value="Paphos" data-dist-el="Πάφος" data-dist-en="Paphos">Πάφος</option>
+              <option value="Limassol" data-dist-el="Λεμεσός" data-dist-en="Limassol">Λεμεσός</option>
+              <option value="Larnaca" data-dist-el="Λάρνακα" data-dist-en="Larnaca">Λάρνακα</option>
+              <option value="Nicosia" data-dist-el="Λευκωσία" data-dist-en="Nicosia">Λευκωσία</option>
+              <option value="Famagusta" data-dist-el="Αμμόχωστος" data-dist-en="Famagusta">Αμμόχωστος</option>
+            </select>
+          </div>
+
+          <div class="checkout-field" id="fieldAkisBranch">
+            <label for="akisBranch" id="courierLocationLabel">Κατάστημα / Σημείο Παραλαβής AKIS EXPRESS *</label>
+            <input type="text" id="akisBranch" name="akisBranch" required placeholder="π.χ. Κατάστημα AKIS Πάφου / Κέντρο" />
+          </div>
+
+          <div class="checkout-error-msg" id="checkoutErrorMsg" role="alert"></div>
+
+          <div class="order-confirmation-box" id="orderConfirmationBox" role="status" aria-live="polite" hidden>
+            <div class="order-confirmation-title" id="orderConfirmationTitle">✓ Η παραγγελία στάλθηκε!</div>
+            <p id="orderConfirmationDesc" class="m-0">
+              Ευχαριστούμε! Η παραγγελία σας καταχωρήθηκε και στάλθηκε στο luxeCandles.cy@gmail.com. Θα επικοινωνήσουμε σύντομα μαζί σας για την αποστολή.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="cart-footer">
+      <div class="flex justify-between text-xs sm:text-sm text-[#5C5149] mb-1">
+        <span data-i18n="cart_sub">Υποσύνολο Προϊόντων:</span>
+        <span id="cartSubPrice">€0.00</span>
+      </div>
+      <div class="flex justify-between text-xs sm:text-sm text-[#5C5149] mb-2">
+        <span data-i18n="cart_ship_label">Μεταφορικά Courier:</span>
+        <span id="cartShipPrice">€0.00</span>
+      </div>
+      <div class="flex justify-between text-base font-bold text-[#1F1916] pt-2 border-t border-[#B8744F]/20 mb-3">
+        <span data-i18n="cart_total">Σύνολο:</span>
+        <span id="cartTotalPrice">€0.00</span>
+      </div>
+
+      <button type="button" class="btn-accent w-full py-3.5 px-5 rounded-xl font-semibold text-sm sm:text-base" id="continueToStep2Btn" data-i18n="btn_continue_step2" hidden>
+        Συνέχεια στα Στοιχεία
+      </button>
+
+      <button type="submit" form="checkoutForm" class="btn-accent w-full py-3.5 px-5 rounded-xl font-semibold text-sm sm:text-base" id="submitOrderBtn" data-i18n="btn_checkout" hidden>
+        Αποστολή Παραγγελίας
+      </button>
+    </div>
+  </aside>
+
+  <script>
+    (function () {
+      "use strict";
+
+      const FORMSPREE_ENDPOINT = "https://formspree.io/f/xqpqlgjl";
+      const STORE_EMAIL = "luxeCandles.cy@gmail.com";
+      const SHIPPING_FEE = 5.0;
+      const FREE_SHIPPING_THRESHOLD = 60.0;
+      const REVIEWS_STORAGE_KEY = "luxe_candles_reviews_v1";
+
+      // Default Verified Customer Reviews
+      const DEFAULT_REVIEWS = [
+        {
+          id: "seed-1",
+          author: { el: "Μαρία Κ., Πάφος", en: "Maria K., Paphos" },
+          rating: 5,
+          productKey: "candles",
+          scentIdx: 2, // Melomakarono
+          date: "14/11/2026",
+          comment: {
+            el: "«Το Μελομακάρονο και το Μήλο & Κανέλα γεμίζουν όλο το σαλόνι χωρίς να είναι βαριά. Υπέροχη ποιότητα κεριού σόγιας!»",
+            en: "“Melomakarono and Apple & Cinnamon fill the entire living room without feeling heavy. Amazing soy wax quality!”"
+          },
+          isSeed: true
+        },
+        {
+          id: "seed-2",
+          author: { el: "Ελένη Π., Λεμεσός", en: "Eleni P., Limassol" },
+          rating: 5,
+          productKey: "melts",
+          scentIdx: 12, // Raspberry Chocolate
+          date: "10/11/2026",
+          comment: {
+            el: "«Πήρα τα οικολογικά Wax Melts σε χάρτινη συσκευασία με άρωμα Σοκολάτα Φραμπουάζ και Μαύρη Καρύδα. Μυρίζουν απίστευτα!»",
+            en: "“I ordered the eco-friendly paper-packed Wax Melts in Raspberry Chocolate and Black Coconut. They smell incredible!”"
+          },
+          isSeed: true
+        },
+        {
+          id: "seed-3",
+          author: { el: "Ανδρέας Γ., Λευκωσία", en: "Andreas G., Nicosia" },
+          rating: 5,
+          productKey: "sachets",
+          scentIdx: 17, // Cashmere
+          date: "05/11/2026",
+          comment: {
+            el: "«Άμεση εξυπηρέτηση και παραλαβή μέσω AKIS EXPRESS ή ACS Courier. Τα αρωματικά ντουλάπας με Κασμίρ και Αγάπη κρατάνε εβδομάδες.»",
+            en: "“Fast service and easy pickup via AKIS EXPRESS or ACS Courier. The wardrobe wax sachets in Cashmere and Love last for weeks.”"
+          },
+          isSeed: true
+        }
+      ];
+
+      // Exact 21 Fragrances (Strictly Monolingual in Greek EL and English EN)
+      const FRAGRANCES = [
+        { el: "Ανατολίτικα Μπαχαρικά", en: "Oriental Spices" },
+        { el: "D&G", en: "D&G" },
+        { el: "Μελομακάρονο", en: "Melomakarono" },
+        { el: "Κουραμπιέδες", en: "Kourabiedes" },
+        { el: "Λάιμ", en: "Lime" },
+        { el: "Ροδάκινο", en: "Peach" },
+        { el: "Κόκκινο Σταφύλι", en: "Red Grape" },
+        { el: "Κεράσι", en: "Cherry" },
+        { el: "Τσουρέκι", en: "Tsoureki" },
+        { el: "Αγάπη", en: "Love" },
+        { el: "Μάνγκο", en: "Mango" },
+        { el: "Ρόδι", en: "Pomegranate" },
+        { el: "Σοκολάτα Φραμπουάζ", en: "Raspberry Chocolate" },
+        { el: "Τζίντζερ", en: "Ginger" },
+        { el: "Μαύρη Καρύδα", en: "Black Coconut" },
+        { el: "Μήλο & Κανέλα", en: "Apple & Cinnamon" },
+        { el: "Μπαχαρικά Κολοκύθας", en: "Pumpkin Spice" },
+        { el: "Κασμίρ", en: "Cashmere" },
+        { el: "Πορτοκάλι", en: "Orange" },
+        { el: "Κράνμπερι", en: "Cranberry" },
+        { el: "Καφές", en: "Coffee" }
+      ];
+
+      const PRODUCT_NAMES = {
+        candles: { el: "Αρωματικά Κεριά Σόγιας", en: "Soy Wax Candles" },
+        diffusers: { el: "Diffusers", en: "Room Diffusers" },
+        sachets: { el: "Αρωματικά Ντουλάπας από Κερί", en: "Wax Sachets" },
+        melts: { el: "Wax Melts", en: "Wax Melts" },
+        bouquets: { el: "Ανθοδέσμες Κεριών", en: "Candle Bouquets" }
+      };
+
+      const I18N = {
+        el: {
+          top_banner: "ΔΩΡΕΑΝ ΜΕΤΑΦΟΡΙΚΑ ΑΝΩ ΤΩΝ €60",
+          menu_collection: "Συλλογή Προϊόντων",
+          menu_scents: "Τα 21 Αρώματά μας",
+          menu_shipping: "Αποστολές • AKIS EXPRESS & ACS",
+          menu_reviews: "Αξιολογήσεις Πελατών",
+          menu_contact: "Επικοινωνία • Πάφος",
+          hero_eyebrow: "ΧΕΙΡΟΠΟΙΗΤΑ ΑΡΩΜΑΤΙΚΑ ΚΕΡΙΑ • ΠΑΦΟΣ, ΚΥΠΡΟΣ",
+          hero_title: "Αρώματα που Μεταμορφώνουν τον Χώρο σας",
+          hero_subtitle: "100% φυσικό κερί σόγιας, εκλεκτά αρωματικά έλαια και οικολογικές συσκευασίες χωρίς πλαστικό, φτιαγμένα στο χέρι στην Κύπρο με αγάπη στη λεπτομέρεια.",
+          hero_cta_primary: "Ανακαλύψτε τη Συλλογή",
+          hero_cta_secondary: "AKIS EXPRESS & ACS Courier",
+          collection_eyebrow: "Η ΣΥΛΛΟΓΗ ΜΑΣ",
+          collection_title: "Χειροποίητες Δημιουργίες",
+          collection_desc: "Επιλέξτε κατηγορία, μέγεθος και το αγαπημένο σας άρωμα από τη συλλογή των 21 εκλεκτών αρωμάτων μας.",
+          filter_all: "Όλα τα Προϊόντα",
+          cat_candles: "Αρωματικά Κεριά Σόγιας",
+          cat_diffusers: "Diffusers",
+          cat_sachets: "Αρωματικά Ντουλάπας από Κερί",
+          cat_melts: "Wax Melts",
+          cat_bouquets: "Ανθοδέσμες Κεριών",
+          badge_soy: "100% Κερί Σόγιας",
+          badge_diffusers: "Συνεχής Αρωματισμός",
+          badge_sachets: "Για Ντουλάπες & Συρτάρια",
+          badge_melts: "100% Eco • Χωρίς Πλαστικό",
+          badge_bouquets: "Χειροποίητες Συνθέσεις",
+          desc_candles: "Χειροποίητα κεριά από 100% φυσικό κερί σόγιας σε ματ μαύρο βαζάκι με ξύλινο καπάκι και βαμβακερό φυτίλι, για καθαρή και μακράς διάρκειας καύση.",
+          desc_diffusers: "Κομψά γυάλινα μπουκάλια με fiber sticks για διακριτικό, συνεχή αρωματισμό σε κάθε δωμάτιο του σπιτιού ή του γραφείου.",
+          desc_sachets: "Χειροποίητες ταμπλέτες κεριού σόγιας με κορδέλα, ιδανικές για να χαρίζουν φρεσκάδα σε ντουλάπες και συρτάρια.",
+          desc_melts: "Έντονα αρωματικά melts από 100% κερί σόγιας σε οικολογική χάρτινη συσκευασία χωρίς καθόλου πλαστικό, για καυστήρες αιθέριων ελαίων.",
+          desc_bouquets: "Χειροποίητες ανθοδέσμες από αρωματικά κεριά σόγιας σμιλεμένα σε σχήμα λουλουδιών, ιδανικές για ξεχωριστές στιγμές και διακόσμηση χώρου.",
+          label_size: "Μέγεθος / Επιλογή",
+          label_scent: "Άρωμα (21 Επιλογές)",
+          btn_add_cart: "Προσθήκη στο Καλάθι",
+          btn_added: "✓ Προστέθηκε",
+          scents_dir_eyebrow: "21 ΜΟΝΑΔΙΚΑ ΑΡΩΜΑΤΑ",
+          scents_dir_title: "Επιλέξτε Άρωμα για Όλα τα Προϊόντα",
+          scents_dir_desc: "Πατήστε σε οποιοδήποτε από τα 21 αρώματά μας για να το προεπιλέξετε αυτόματα σε όλες τις κατηγορίες.",
+          ship_eyebrow: "ΠΑΓΚΥΠΡΙΑ ΠΑΡΑΔΟΣΗ",
+          ship_title: "Αποστολές σε Όλη την Κύπρο με AKIS EXPRESS ή ACS Courier",
+          ship_subtitle: "Επιλέξτε ανάμεσα σε AKIS EXPRESS και ACS Courier με ενιαία χρέωση αποστολής για όλες τις επαρχίες (Πάφος, Λεμεσός, Λάρνακα, Λευκωσία, Αμμόχωστος).",
+          ship_card1_title: "Παραγγελίες κάτω των €60",
+          ship_card1_desc: "Σταθερό κόστος μεταφορικών €5.00 με AKIS EXPRESS ή ACS Courier για όλες τις επαρχίες της Κύπρου, συμπεριλαμβανομένης της Πάφου.",
+          ship_card2_title: "Δωρεάν Άνω των €60",
+          ship_card2_desc: "Για αγορές €60.00 και άνω, τα μεταφορικά με AKIS EXPRESS ή ACS Courier είναι εντελώς δωρεάν (€0.00) παγκύπρια.",
+          ship_card3_title: "Γρήγορη Παράδοση 1–2 Ημέρες",
+          ship_card3_desc: "Άμεση προετοιμασία της παραγγελίας σας στο εργαστήριό μας στην Πάφο και αποστολή με το courier της επιλογής σας.",
+          rev_eyebrow: "ΚΡΙΤΙΚΕΣ ΠΕΛΑΤΩΝ",
+          rev_title: "Τι Λένε οι Πελάτες μας στην Κύπρο",
+          rev_form_eyebrow: "ΜΟΙΡΑΣΤΕΙΤΕ ΤΗΝ ΕΜΠΕΙΡΙΑ ΣΑΣ",
+          rev_form_title: "Αφήστε την Αξιολόγησή σας",
+          rev_form_desc: "Παραγγείλατε από το LUXE CANDLES; Γράψτε τη γνώμη σας για το άρωμα και το προϊόν που επιλέξατε.",
+          rev_label_name: "Όνομα *",
+          rev_label_rating: "Βαθμολογία (1–5 Αστέρια) *",
+          rev_label_item: "Προϊόν / Άρωμα που Παραγγείλατε *",
+          rev_label_comment: "Η αξιολόγησή σας *",
+          rev_btn_submit: "Δημοσίευση Αξιολόγησης",
+          rev_btn_submitting: "Αποστολή αξιολόγησης...",
+          rev_verified_badge: "Επαληθευμένη Αγορά",
+          rev_err_required: "Παρακαλώ συμπληρώστε το όνομά σας, επιλέξτε προϊόν/άρωμα και γράψτε την αξιολόγησή σας.",
+          rev_success_msg: "✓ Ευχαριστούμε! Η αξιολόγησή σας δημοσιεύτηκε και στάλθηκε στο luxeCandles.cy@gmail.com.",
+          contact_eyebrow: "ΕΠΙΚΟΙΝΩΝΙΑ",
+          contact_title: "Εργαστήριο LUXE CANDLES",
+          contact_desc: "Έχετε απορίες για τα αρώματα ή θέλετε ειδική παραγγελία για δώρα και εκδηλώσεις; Επικοινωνήστε μαζί μας.",
+          contact_loc_label: "Τοποθεσία",
+          contact_loc_val: "Πάφος, Κύπρος",
+          footer_tagline: "Atelier Χειροποίητων Αρωματικών Κεριών",
+          footer_about: "Χειροποίητα αρωματικά κεριά σόγιας, diffusers, αρωματικά ντουλάπας, οικολογικά wax melts και ανθοδέσμες κεριών φτιαγμένα στην Πάφο, Κύπρος.",
+          footer_cats_title: "Κατηγορίες",
+          footer_info_title: "Πληροφορίες",
+          footer_ship: "Παγκύπρια Παράδοση με AKIS EXPRESS ή ACS Courier (€5 κάτω των €60 • Δωρεάν άνω των €60)",
+          cart_drawer_title: "Το Καλάθι Σας",
+          cart_empty: "Το καλάθι σας είναι άδειο.",
+          step1_indicator: "Βήμα 1 από 2 • Προϊόντα",
+          btn_continue_step2: "Συνέχεια στα Στοιχεία",
+          btn_back: "Πίσω",
+          form_section_title: "Στοιχεία Παραλήπτη & Courier",
+          label_recipient_name: "Ονοματεπώνυμο Παραλήπτη *",
+          label_recipient_phone: "Τηλέφωνο *",
+          label_shipping_courier: "Επιλογή Courier *",
+          label_recipient_district: "Επαρχία *",
+          cart_sub: "Υποσύνολο Προϊόντων:",
+          cart_ship_label: "Μεταφορικά Courier:",
+          cart_total: "Σύνολο:",
+          btn_checkout: "Αποστολή Παραγγελίας",
+          btn_sending: "Αποστολή σε εξέλιξη...",
+          order_success_title: "✓ Η παραγγελία στάλθηκε!",
+          order_success: "Ευχαριστούμε! Η παραγγελία σας καταχωρήθηκε και στάλθηκε στο luxeCandles.cy@gmail.com. Θα επικοινωνήσουμε σύντομα μαζί σας για την αποστολή.",
+          order_error_network: "Παρουσιάστηκε σφάλμα δικτύου ή διακομιστή κατά την αποστολή. Παρακαλώ δοκιμάστε ξανά σε λίγο."
+        },
+        en: {
+          top_banner: "FREE SHIPPING OVER €60",
+          menu_collection: "Product Collection",
+          menu_scents: "Our 21 Fragrances",
+          menu_shipping: "Shipping • AKIS EXPRESS & ACS",
+          menu_reviews: "Customer Reviews",
+          menu_contact: "Contact • Paphos",
+          hero_eyebrow: "HANDCRAFTED SCENTED CANDLES • PAPHOS, CYPRUS",
+          hero_title: "Scents that Transform Your Space",
+          hero_subtitle: "100% natural soy wax, fine fragrance oils, and plastic-free eco packaging, hand-poured in Cyprus with care and elegance.",
+          hero_cta_primary: "Explore Collection",
+          hero_cta_secondary: "AKIS EXPRESS & ACS Courier",
+          collection_eyebrow: "OUR COLLECTION",
+          collection_title: "Handcrafted Creations",
+          collection_desc: "Select a category, size, and your favorite scent from our collection of 21 signature fragrances.",
+          filter_all: "All Products",
+          cat_candles: "Soy Wax Candles",
+          cat_diffusers: "Room Diffusers",
+          cat_sachets: "Wax Sachets",
+          cat_melts: "Wax Melts",
+          cat_bouquets: "Candle Bouquets",
+          badge_soy: "100% Soy Wax",
+          badge_diffusers: "Continuous Scent",
+          badge_sachets: "For Wardrobes & Drawers",
+          badge_melts: "100% Eco • Plastic-Free",
+          badge_bouquets: "Handcrafted Arrangements",
+          desc_candles: "Hand-poured candles made with 100% natural soy wax in a matte black jar with wooden lid and cotton wick for a clean, long-lasting burn.",
+          desc_diffusers: "Elegant glass vessels with fiber reeds for subtle, continuous fragrance in every room of your home or office.",
+          desc_sachets: "Handcrafted soy wax tablets with ribbon, ideal for keeping wardrobes, drawers, and linens delicately scented.",
+          desc_melts: "Richly scented 100% soy wax melts in eco-friendly plastic-free paper packaging for wax warmers.",
+          desc_bouquets: "Handcrafted candle bouquets sculpted from scented soy wax blooms, ideal for special occasions and home décor.",
+          label_size: "Size / Option",
+          label_scent: "Fragrance (21 Choices)",
+          btn_add_cart: "Add to Cart",
+          btn_added: "✓ Added",
+          scents_dir_eyebrow: "21 SIGNATURE SCENTS",
+          scents_dir_title: "Choose Any Fragrance Across All Products",
+          scents_dir_desc: "Tap any of our 21 fragrances below to pre-select it across all product categories.",
+          ship_eyebrow: "CYPRUS-WIDE DELIVERY",
+          ship_title: "Cyprus-Wide Delivery via AKIS EXPRESS or ACS Courier",
+          ship_subtitle: "Choose between AKIS EXPRESS and ACS Courier with unified shipping rates across all districts (Paphos, Limassol, Larnaca, Nicosia, Famagusta).",
+          ship_card1_title: "Orders Under €60",
+          ship_card1_desc: "Flat €5.00 shipping fee with AKIS EXPRESS or ACS Courier across all Cyprus districts, including Paphos.",
+          ship_card2_title: "Free Over €60",
+          ship_card2_desc: "Enjoy completely free (€0.00) shipping with AKIS EXPRESS or ACS Courier across Cyprus on orders of €60.00 or more.",
+          ship_card3_title: "Fast 1–2 Day Dispatch",
+          ship_card3_desc: "Promptly prepared in our Paphos studio and dispatched via your preferred courier.",
+          rev_eyebrow: "CUSTOMER REVIEWS",
+          rev_title: "Loved Across Cyprus",
+          rev_form_eyebrow: "SHARE YOUR EXPERIENCE",
+          rev_form_title: "Leave Your Review",
+          rev_form_desc: "Ordered from LUXE CANDLES? Share your thoughts on the fragrance and product you selected.",
+          rev_label_name: "Name *",
+          rev_label_rating: "Star Rating (1–5 Stars) *",
+          rev_label_item: "Product / Scent Ordered *",
+          rev_label_comment: "Your review *",
+          rev_btn_submit: "Submit Review",
+          rev_btn_submitting: "Submitting review...",
+          rev_verified_badge: "Verified Order",
+          rev_err_required: "Please enter your name, select a product/scent, and write your review comment.",
+          rev_success_msg: "✓ Thank you! Your review is now live and has been sent to luxeCandles.cy@gmail.com.",
+          contact_eyebrow: "CONTACT",
+          contact_title: "LUXE CANDLES Atelier",
+          contact_desc: "Have questions about our scents or planning bespoke gifts and event favors? Get in touch with us.",
+          contact_loc_label: "Location",
+          contact_loc_val: "Paphos, Cyprus",
+          footer_tagline: "Handcrafted Scented Candle Atelier",
+          footer_about: "Handcrafted soy wax candles, room diffusers, wardrobe wax sachets, eco-friendly plastic-free wax melts, and candle bouquets crafted in Paphos, Cyprus.",
+          footer_cats_title: "Categories",
+          footer_info_title: "Information",
+          footer_ship: "Cyprus-wide Delivery via AKIS EXPRESS or ACS Courier (€5 under €60 • Free over €60)",
+          cart_drawer_title: "Your Shopping Bag",
+          cart_empty: "Your cart is empty.",
+          step1_indicator: "Step 1 of 2 • Cart Items",
+          btn_continue_step2: "Continue to Recipient Details",
+          btn_back: "Back",
+          form_section_title: "Recipient & Courier Details",
+          label_recipient_name: "Recipient Full Name *",
+          label_recipient_phone: "Phone *",
+          label_shipping_courier: "Courier Selection *",
+          label_recipient_district: "District *",
+          cart_sub: "Items Subtotal:",
+          cart_ship_label: "Courier Shipping:",
+          cart_total: "Total:",
+          btn_checkout: "Send Order",
+          btn_sending: "Sending Order...",
+          order_success_title: "✓ Your order has been sent!",
+          order_success: "Thank you! Your order has been received and sent to luxeCandles.cy@gmail.com. We will contact you shortly regarding your delivery.",
+          order_error_network: "A network or server error occurred while sending your order. Please try again in a moment."
+        }
+      };
+
+      let currentLang = "el";
+      let cart = [];
+      let currentCartStep = 1;
+      let isSubmitting = false;
+      let toastTimer = null;
+      let activeDirectoryScentIdx = 0;
+      let userSubmittedReviews = [];
+      let selectedReviewStars = 5;
+
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      // Initialize Single-Image-at-a-Time Swipe / Slide Carousels
+      function setupMediaCarousels() {
+        document.querySelectorAll(".media-carousel").forEach((carousel) => {
+          const track = carousel.querySelector(".media-carousel-track");
+          const slides = carousel.querySelectorAll(".media-carousel-slide");
+          const dots = carousel.querySelectorAll(".carousel-dot");
+          const prevBtn = carousel.querySelector(".carousel-nav-btn.prev");
+          const nextBtn = carousel.querySelector(".carousel-nav-btn.next");
+
+          if (!track || slides.length === 0) return;
+
+          let currentIndex = 0;
+          const totalSlides = slides.length;
+          let startX = 0;
+          let startY = 0;
+          let deltaX = 0;
+          let isDragging = false;
+
+          function goToSlide(index) {
+            currentIndex = (index + totalSlides) % totalSlides;
+            track.style.transition = "transform 0.34s cubic-bezier(0.22, 1, 0.36, 1)";
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach((dot, idx) => {
+              dot.classList.toggle("active", idx === currentIndex);
+            });
+          }
+
+          if (prevBtn) {
+            prevBtn.addEventListener("click", (e) => {
+              e.stopPropagation();
+              goToSlide(currentIndex - 1);
+            });
+          }
+
+          if (nextBtn) {
+            nextBtn.addEventListener("click", (e) => {
+              e.stopPropagation();
+              goToSlide(currentIndex + 1);
+            });
+          }
+
+          dots.forEach((dot, idx) => {
+            dot.addEventListener("click", (e) => {
+              e.stopPropagation();
+              goToSlide(idx);
+            });
+          });
+
+          // Touch Swipe Gestures
+          carousel.addEventListener(
+            "touchstart",
+            (e) => {
+              if (!e.touches || e.touches.length !== 1) return;
+              startX = e.touches[0].clientX;
+              startY = e.touches[0].clientY;
+              deltaX = 0;
+              isDragging = true;
+              track.style.transition = "none";
+            },
+            { passive: true }
+          );
+
+          carousel.addEventListener(
+            "touchmove",
+            (e) => {
+              if (!isDragging || !e.touches || e.touches.length !== 1) return;
+              const dx = e.touches[0].clientX - startX;
+              const dy = e.touches[0].clientY - startY;
+              if (Math.abs(dx) > Math.abs(dy)) {
+                deltaX = dx;
+                const width = carousel.offsetWidth || 1;
+                const percentOffset = (deltaX / width) * 100;
+                track.style.transform = `translateX(calc(-${currentIndex * 100}% + ${percentOffset}%))`;
+              }
+            },
+            { passive: true }
+          );
+
+          carousel.addEventListener(
+            "touchend",
+            () => {
+              if (!isDragging) return;
+              isDragging = false;
+              const threshold = Math.max(36, (carousel.offsetWidth || 300) * 0.16);
+              if (deltaX <= -threshold) {
+                goToSlide(currentIndex + 1);
+              } else if (deltaX >= threshold) {
+                goToSlide(currentIndex - 1);
+              } else {
+                goToSlide(currentIndex);
+              }
+              deltaX = 0;
+            },
+            { passive: true }
+          );
+
+          // Desktop Mouse Drag Support
+          carousel.addEventListener("mousedown", (e) => {
+            if (e.target.closest("button")) return;
+            startX = e.clientX;
+            deltaX = 0;
+            isDragging = true;
+            track.style.transition = "none";
+          });
+
+          window.addEventListener("mousemove", (e) => {
+            if (!isDragging) return;
+            deltaX = e.clientX - startX;
+            const width = carousel.offsetWidth || 1;
+            const percentOffset = (deltaX / width) * 100;
+            track.style.transform = `translateX(calc(-${currentIndex * 100}% + ${percentOffset}%))`;
+          });
+
+          window.addEventListener("mouseup", () => {
+            if (!isDragging) return;
+            isDragging = false;
+            const threshold = Math.max(36, (carousel.offsetWidth || 300) * 0.16);
+            if (deltaX <= -threshold) {
+              goToSlide(currentIndex + 1);
+            } else if (deltaX >= threshold) {
+              goToSlide(currentIndex - 1);
+            } else {
+              goToSlide(currentIndex);
+            }
+            deltaX = 0;
+          });
+        });
+      }
+
+      function loadSavedReviews() {
+        try {
+          const raw = localStorage.getItem(REVIEWS_STORAGE_KEY);
+          if (!raw) return [];
+          const parsed = JSON.parse(raw);
+          return Array.isArray(parsed) ? parsed : [];
+        } catch (err) {
+          return [];
+        }
+      }
+
+      function saveReviewsToStorage() {
+        try {
+          localStorage.setItem(REVIEWS_STORAGE_KEY, JSON.stringify(userSubmittedReviews));
+        } catch (err) {
+          // Ignore storage quota errors safely
+        }
+      }
+
+      function formatTodayDate() {
+        const now = new Date();
+        const dd = String(now.getDate()).padStart(2, "0");
+        const mm = String(now.getMonth() + 1).padStart(2, "0");
+        const yyyy = now.getFullYear();
+        return `${dd}/${mm}/${yyyy}`;
+      }
+
+      function populateReviewProductScentSelect() {
+        const sel = document.getElementById("reviewProductScent");
+        if (!sel) return;
+        const prevValue = sel.value;
+        sel.innerHTML = "";
+
+        const productKeys = ["candles", "diffusers", "sachets", "melts", "bouquets"];
+        productKeys.forEach((pKey) => {
+          const group = document.createElement("optgroup");
+          group.label = PRODUCT_NAMES[pKey][currentLang];
+          FRAGRANCES.forEach((scent, sIdx) => {
+            const opt = document.createElement("option");
+            opt.value = `${pKey}:${sIdx}`;
+            opt.textContent = `${PRODUCT_NAMES[pKey][currentLang]} — ${scent[currentLang]}`;
+            group.appendChild(opt);
+          });
+          sel.appendChild(group);
+        });
+
+        if (prevValue && Array.from(sel.options).some((o) => o.value === prevValue)) {
+          sel.value = prevValue;
+        }
+      }
+
+      function updateReviewStarUI(rating) {
+        selectedReviewStars = Math.min(5, Math.max(1, parseInt(rating, 10) || 5));
+        const hiddenInput = document.getElementById("reviewRatingValue");
+        if (hiddenInput) hiddenInput.value = String(selectedReviewStars);
+
+        document.querySelectorAll("#reviewStarSelector .star-pick-btn").forEach((btn) => {
+          const starNum = parseInt(btn.getAttribute("data-star"), 10);
+          if (starNum <= selectedReviewStars) {
+            btn.classList.add("active");
+          } else {
+            btn.classList.remove("active");
+          }
+        });
+      }
+
+      function renderReviewsSection() {
+        const grid = document.getElementById("reviewsGrid");
+        const summaryStarsEl = document.getElementById("reviewsSummaryStars");
+        const summaryTextEl = document.getElementById("reviewsSummaryText");
+        if (!grid) return;
+
+        const allReviews = [...userSubmittedReviews, ...DEFAULT_REVIEWS];
+        const totalCount = allReviews.length;
+        const avgNumeric =
+          totalCount > 0
+            ? allReviews.reduce((sum, r) => sum + (Number(r.rating) || 5), 0) / totalCount
+            : 5.0;
+        const roundedFullStars = Math.round(avgNumeric);
+        const starsDisplay = "★".repeat(roundedFullStars) + "☆".repeat(Math.max(0, 5 - roundedFullStars));
+
+        if (summaryStarsEl) summaryStarsEl.textContent = starsDisplay;
+        if (summaryTextEl) {
+          const countLabel =
+            currentLang === "el"
+              ? `${totalCount} ${totalCount === 1 ? "αξιολόγηση" : "αξιολογήσεις"}`
+              : `${totalCount} ${totalCount === 1 ? "review" : "reviews"}`;
+          summaryTextEl.textContent = `${avgNumeric.toFixed(1)} / 5 (${countLabel})`;
+        }
+
+        grid.innerHTML = "";
+        allReviews.forEach((rev) => {
+          const card = document.createElement("div");
+          card.className = "theme-surface rounded-2xl p-6 flex flex-col justify-between";
+
+          const rStars = Math.min(5, Math.max(1, Number(rev.rating) || 5));
+          const starsStr = "★".repeat(rStars) + "☆".repeat(5 - rStars);
+
+          const prodLabel = PRODUCT_NAMES[rev.productKey]
+            ? PRODUCT_NAMES[rev.productKey][currentLang]
+            : PRODUCT_NAMES.candles[currentLang];
+          const scentLabel = getScentLabel(rev.scentIdx);
+
+          const authorText = rev.isSeed ? rev.author[currentLang] : `— ${rev.author}`;
+          const commentText = rev.isSeed ? rev.comment[currentLang] : `«${rev.comment}»`;
+
+          card.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2.5">
+                <span class="text-[#B8744F] text-base tracking-wider">${starsStr}</span>
+                <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#2E6F40]/15 text-[#2E6F40]">
+                  ✓ ${I18N[currentLang].rev_verified_badge}
+                </span>
+              </div>
+              <div class="text-xs font-semibold text-[#B8744F] mb-2">
+                ${escapeHtml(prodLabel)} • ${escapeHtml(scentLabel)}
+              </div>
+              <p class="text-sm leading-relaxed mb-4">${escapeHtml(commentText)}</p>
+            </div>
+            <div class="flex items-center justify-between gap-2 pt-2 border-t border-[#B8744F]/15 text-xs font-bold theme-text-secondary">
+              <span>${escapeHtml(authorText)}</span>
+              <span class="font-normal opacity-80">${escapeHtml(rev.date || "")}</span>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      }
+
+      async function handleReviewSubmit(e) {
+        e.preventDefault();
+        const nameInput = document.getElementById("reviewAuthorName");
+        const itemSelect = document.getElementById("reviewProductScent");
+        const commentInput = document.getElementById("reviewCommentText");
+        const feedbackEl = document.getElementById("reviewFormFeedback");
+        const submitBtn = document.getElementById("submitReviewBtn");
+
+        const authorName = nameInput ? nameInput.value.trim() : "";
+        const itemVal = itemSelect ? itemSelect.value : "candles:0";
+        const commentText = commentInput ? commentInput.value.trim() : "";
+        const ratingVal = selectedReviewStars;
+
+        if (!authorName || !itemVal || !commentText) {
+          if (feedbackEl) {
+            feedbackEl.className = "review-feedback-msg is-error";
+            feedbackEl.textContent = I18N[currentLang].rev_err_required;
+          }
+          if (!authorName && nameInput) nameInput.focus();
+          else if (!commentText && commentInput) commentInput.focus();
+          return;
+        }
+
+        const parts = itemVal.split(":");
+        const productKey = PRODUCT_NAMES[parts[0]] ? parts[0] : "candles";
+        const parsedScentIdx = parseInt(parts[1], 10);
+        const scentIdx =
+          !isNaN(parsedScentIdx) && parsedScentIdx >= 0 && parsedScentIdx < FRAGRANCES.length
+            ? parsedScentIdx
+            : 0;
+
+        const newReview = {
+          id: "rev-" + Date.now(),
+          author: authorName,
+          rating: ratingVal,
+          productKey,
+          scentIdx,
+          date: formatTodayDate(),
+          comment: commentText,
+          isSeed: false
+        };
+
+        // Immediately prepend to live list & save to localStorage
+        userSubmittedReviews.unshift(newReview);
+        saveReviewsToStorage();
+        renderReviewsSection();
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = I18N[currentLang].rev_btn_submitting;
+        }
+
+        if (feedbackEl) {
+          feedbackEl.className = "review-feedback-msg is-success";
+          feedbackEl.textContent = I18N[currentLang].rev_success_msg;
+        }
+
+        // Send copy in background to Formspree -> luxeCandles.cy@gmail.com
+        const reviewPayload = {
+          subject: "New LUXE CANDLES Review",
+          store_email: STORE_EMAIL,
+          language: currentLang.toUpperCase(),
+          reviewer_name: authorName,
+          star_rating: `${ratingVal} / 5`,
+          product_el: PRODUCT_NAMES[productKey].el,
+          product_en: PRODUCT_NAMES[productKey].en,
+          scent_el: FRAGRANCES[scentIdx].el,
+          scent_en: FRAGRANCES[scentIdx].en,
+          review_comment: commentText,
+          submitted_date: newReview.date
+        };
+
+        try {
+          await fetch(FORMSPREE_ENDPOINT, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json"
+            },
+            body: JSON.stringify(reviewPayload)
+          });
+        } catch (err) {
+          // Review is already published & saved locally even if offline
+        } finally {
+          if (nameInput) nameInput.value = "";
+          if (commentInput) commentInput.value = "";
+          updateReviewStarUI(5);
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = I18N[currentLang].rev_btn_submit;
+          }
+        }
+      }
+
+      function roundCurrency(val) {
+        return Math.round((Number(val) + Number.EPSILON) * 100) / 100;
+      }
+
+      function formatEuro(val) {
+        return "€" + roundCurrency(val).toFixed(2);
+      }
+
+      function getScentLabel(idx) {
+        const safeIdx = Number.isInteger(idx) && idx >= 0 && idx < FRAGRANCES.length ? idx : 0;
+        return FRAGRANCES[safeIdx][currentLang];
+      }
+
+      // Populate all 21 monolingual fragrances into every product dropdown (never empty)
+      function populateScentSelects() {
+        document.querySelectorAll(".scent-select").forEach((sel) => {
+          const prevVal = parseInt(sel.value, 10);
+          const selectedIdx = !isNaN(prevVal) && prevVal >= 0 && prevVal < FRAGRANCES.length ? prevVal : 0;
+          sel.innerHTML = "";
+          FRAGRANCES.forEach((scent, idx) => {
+            const opt = document.createElement("option");
+            opt.value = String(idx);
+            opt.textContent = scent[currentLang];
+            if (idx === selectedIdx) opt.selected = true;
+            sel.appendChild(opt);
+          });
+        });
+      }
+
+      function updateSizeOptionLabels() {
+        document.querySelectorAll(".size-select").forEach((sel) => {
+          Array.from(sel.options).forEach((opt) => {
+            const lbl = currentLang === "el" ? opt.getAttribute("data-label-el") : opt.getAttribute("data-label-en");
+            if (lbl) opt.textContent = lbl;
+          });
+        });
+      }
+
+      function renderScentDirectory() {
+        const container = document.getElementById("scentDirectoryChips");
+        if (!container) return;
+        container.innerHTML = "";
+        FRAGRANCES.forEach((scent, idx) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "scent-chip" + (idx === activeDirectoryScentIdx ? " active" : "");
+          btn.textContent = scent[currentLang];
+          btn.addEventListener("click", () => {
+            activeDirectoryScentIdx = idx;
+            document.querySelectorAll(".scent-select").forEach((sel) => {
+              sel.value = String(idx);
+            });
+            renderScentDirectory();
+            const msg =
+              currentLang === "el"
+                ? `Επιλέχθηκε το άρωμα: ${scent.el}`
+                : `Selected fragrance: ${scent.en}`;
+            showToast(msg);
+          });
+          container.appendChild(btn);
+        });
+      }
+
+      function updateDistrictLabels() {
+        const distSel = document.getElementById("recipientDistrict");
+        if (!distSel) return;
+        Array.from(distSel.options).forEach((opt) => {
+          const lbl = currentLang === "el" ? opt.getAttribute("data-dist-el") : opt.getAttribute("data-dist-en");
+          if (lbl) opt.textContent = lbl;
+        });
+      }
+
+      function updateCourierLocationUI() {
+        const courierSel = document.getElementById("shippingCourier");
+        const locLabel = document.getElementById("courierLocationLabel");
+        const branchInput = document.getElementById("akisBranch");
+        const courier = courierSel ? courierSel.value : "AKIS EXPRESS";
+
+        if (locLabel) {
+          if (courier === "ACS Courier") {
+            locLabel.textContent =
+              currentLang === "el"
+                ? "Κατάστημα ACS Courier / Διεύθυνση Παράδοσης *"
+                : "ACS Courier Branch / Delivery Location *";
+          } else {
+            locLabel.textContent =
+              currentLang === "el"
+                ? "Κατάστημα / Σημείο Παραλαβής AKIS EXPRESS *"
+                : "AKIS EXPRESS Pickup Branch / Location *";
+          }
+        }
+
+        if (branchInput) {
+          if (courier === "ACS Courier") {
+            branchInput.placeholder =
+              currentLang === "el"
+                ? "π.χ. Κατάστημα ACS Πάφου ή Διεύθυνση"
+                : "e.g. ACS Paphos Branch or Delivery Address";
+          } else {
+            branchInput.placeholder =
+              currentLang === "el"
+                ? "π.χ. Κατάστημα AKIS Πάφου / Κέντρο"
+                : "e.g. AKIS Paphos Center Branch";
+          }
+        }
+      }
+
+      function showToast(message) {
+        const toast = document.getElementById("toastBanner");
+        if (!toast) return;
+        toast.textContent = message;
+        toast.classList.add("visible");
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toast.classList.remove("visible");
+        }, 2200);
+      }
+
+      function getCartTotals() {
+        const totalQty = cart.reduce((acc, item) => acc + item.qty, 0);
+        const subtotal = roundCurrency(cart.reduce((acc, item) => acc + item.price * item.qty, 0));
+        const shipping = subtotal <= 0 ? 0 : subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE;
+        const grandTotal = roundCurrency(subtotal + shipping);
+        return { totalQty, subtotal, shipping, grandTotal };
+      }
+
+      function setCartStep(step) {
+        currentCartStep = step === 2 && cart.length > 0 ? 2 : 1;
+        const step1El = document.getElementById("cartStep1View");
+        const step2El = document.getElementById("cartStep2View");
+        const contBtn = document.getElementById("continueToStep2Btn");
+        const subBtn = document.getElementById("submitOrderBtn");
+
+        if (step1El) step1El.hidden = currentCartStep !== 1;
+        if (step2El) step2El.hidden = currentCartStep !== 2;
+
+        if (contBtn) {
+          contBtn.hidden = currentCartStep !== 1 || cart.length === 0;
+        }
+        if (subBtn) {
+          subBtn.hidden = currentCartStep !== 2 || cart.length === 0;
+        }
+      }
+
+      function renderCart() {
+        const { totalQty, subtotal, shipping, grandTotal } = getCartTotals();
+
+        const badgeEl = document.getElementById("cartBadgeCount");
+        if (badgeEl) badgeEl.textContent = String(totalQty);
+
+        const subEl = document.getElementById("cartSubPrice");
+        const shipEl = document.getElementById("cartShipPrice");
+        const totEl = document.getElementById("cartTotalPrice");
+        const pillEl = document.getElementById("step2TotalPill");
+
+        if (subEl) subEl.textContent = formatEuro(subtotal);
+        if (shipEl) {
+          shipEl.textContent =
+            subtotal > 0 && shipping === 0
+              ? currentLang === "el"
+                ? "ΔΩΡΕΑΝ (€0.00)"
+                : "FREE (€0.00)"
+              : formatEuro(shipping);
+        }
+        if (totEl) totEl.textContent = formatEuro(grandTotal);
+        if (pillEl) pillEl.textContent = formatEuro(grandTotal);
+
+        const noticeEl = document.getElementById("cartShippingNotice");
+        const progressEl = document.getElementById("shippingProgressFill");
+        if (noticeEl && progressEl) {
+          if (subtotal <= 0) {
+            progressEl.style.width = "0%";
+            noticeEl.textContent =
+              currentLang === "el"
+                ? "AKIS EXPRESS / ACS Courier: €5.00 κάτω των €60.00 • Δωρεάν άνω των €60.00 (Παγκύπρια)."
+                : "AKIS EXPRESS / ACS Courier: €5.00 under €60.00 • Free over €60.00 (Cyprus-wide).";
+          } else if (subtotal >= FREE_SHIPPING_THRESHOLD) {
+            progressEl.style.width = "100%";
+            noticeEl.textContent =
+              currentLang === "el"
+                ? "✓ Κερδίσατε ΔΩΡΕΑΝ μεταφορικά (€0.00) με AKIS EXPRESS ή ACS Courier!"
+                : "✓ You unlocked FREE shipping (€0.00) with AKIS EXPRESS or ACS Courier!";
+          } else {
+            const remaining = roundCurrency(FREE_SHIPPING_THRESHOLD - subtotal);
+            const pct = Math.min(100, Math.round((subtotal / FREE_SHIPPING_THRESHOLD) * 100));
+            progressEl.style.width = `${pct}%`;
+            noticeEl.textContent =
+              currentLang === "el"
+                ? `Προσθέστε ${formatEuro(remaining)} ακόμη για ΔΩΡΕΑΝ μεταφορικά!`
+                : `Add ${formatEuro(remaining)} more for FREE shipping!`;
+          }
+        }
+
+        const itemsContainer = document.getElementById("cartItemsContainer");
+        if (!itemsContainer) return;
+
+        if (cart.length === 0) {
+          itemsContainer.innerHTML = `<p class="text-center text-sm text-[#5C5149] mt-10">${I18N[currentLang].cart_empty}</p>`;
+          setCartStep(1);
+          return;
+        }
+
+        itemsContainer.innerHTML = "";
+        cart.forEach((item, index) => {
+          const card = document.createElement("div");
+          card.className = "cart-item-card";
+
+          const catTitle = PRODUCT_NAMES[item.productKey][currentLang];
+          const scentTitle = getScentLabel(item.scentIdx);
+          const lineTotal = formatEuro(item.price * item.qty);
+
+          card.innerHTML = `
+            <div class="flex items-start justify-between gap-2 mb-1">
+              <div>
+                <div class="font-bold text-sm text-[#1F1916]">${catTitle}</div>
+                <div class="text-xs text-[#5C5149] mt-0.5">${item.size} • <span class="font-semibold text-[#8E5132]">${scentTitle}</span></div>
+              </div>
+              <button type="button" class="text-xs text-[#5C5149] hover:text-[#C53030] font-semibold px-1.5 py-0.5 remove-item-btn" data-index="${index}" aria-label="Remove item">
+                ✕
+              </button>
+            </div>
+            <div class="flex items-center justify-between mt-3 pt-2 border-t border-[#B8744F]/15">
+              <div class="inline-flex items-center gap-2.5">
+                <button type="button" class="qty-btn dec-qty-btn" data-index="${index}" aria-label="Decrease quantity">−</button>
+                <span class="text-sm font-bold min-w-[18px] text-center">${item.qty}</span>
+                <button type="button" class="qty-btn inc-qty-btn" data-index="${index}" aria-label="Increase quantity">+</button>
+              </div>
+              <div class="text-sm font-bold text-[#1F1916]">${lineTotal}</div>
+            </div>
+          `;
+          itemsContainer.appendChild(card);
+        });
+
+        itemsContainer.querySelectorAll(".dec-qty-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const idx = parseInt(btn.getAttribute("data-index"), 10);
+            if (!isNaN(idx) && cart[idx]) {
+              if (cart[idx].qty > 1) {
+                cart[idx].qty -= 1;
+              } else {
+                cart.splice(idx, 1);
+              }
+              renderCart();
+            }
+          });
+        });
+
+        itemsContainer.querySelectorAll(".inc-qty-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const idx = parseInt(btn.getAttribute("data-index"), 10);
+            if (!isNaN(idx) && cart[idx]) {
+              cart[idx].qty += 1;
+              renderCart();
+            }
+          });
+        });
+
+        itemsContainer.querySelectorAll(".remove-item-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const idx = parseInt(btn.getAttribute("data-index"), 10);
+            if (!isNaN(idx)) {
+              cart.splice(idx, 1);
+              renderCart();
+            }
+          });
+        });
+
+        setCartStep(currentCartStep);
+      }
+
+      // Add item to cart WITHOUT auto-opening drawer (only badge pulse + brief toast)
+      function handleAddToCart(productKey, btnEl) {
+        const sizeSel = document.getElementById(`size-${productKey}`);
+        const scentSel = document.getElementById(`scent-${productKey}`);
+        if (!sizeSel || !scentSel) return;
+
+        const selectedSizeOpt = sizeSel.options[sizeSel.selectedIndex];
+        const sizeVal = selectedSizeOpt ? selectedSizeOpt.value : "";
+        const priceVal = selectedSizeOpt ? parseFloat(selectedSizeOpt.getAttribute("data-price")) : 0;
+        const scentIdx = parseInt(scentSel.value, 10);
+        const validScentIdx = !isNaN(scentIdx) && scentIdx >= 0 && scentIdx < FRAGRANCES.length ? scentIdx : 0;
+
+        const existing = cart.find(
+          (item) => item.productKey === productKey && item.size === sizeVal && item.scentIdx === validScentIdx
+        );
+        if (existing) {
+          existing.qty += 1;
+        } else {
+          cart.push({
+            productKey,
+            size: sizeVal,
+            price: priceVal,
+            scentIdx: validScentIdx,
+            qty: 1
+          });
+        }
+
+        renderCart();
+
+        const pinnedCartBtn = document.getElementById("cartOpenBtn");
+        if (pinnedCartBtn) {
+          pinnedCartBtn.classList.remove("pulse");
+          void pinnedCartBtn.offsetWidth;
+          pinnedCartBtn.classList.add("pulse");
+          setTimeout(() => pinnedCartBtn.classList.remove("pulse"), 350);
+        }
+
+        if (btnEl) {
+          btnEl.classList.add("is-added");
+          btnEl.textContent = I18N[currentLang].btn_added;
+          setTimeout(() => {
+            btnEl.classList.remove("is-added");
+            btnEl.textContent = I18N[currentLang].btn_add_cart;
+          }, 1100);
+        }
+
+        const { totalQty } = getCartTotals();
+        const scentName = getScentLabel(validScentIdx);
+        const toastMsg =
+          currentLang === "el"
+            ? `✓ Προστέθηκε (${scentName}) • Καλάθι: ${totalQty}`
+            : `✓ Added (${scentName}) • Cart: ${totalQty}`;
+        showToast(toastMsg);
+      }
+
+      function openDrawer(drawerId) {
+        closeAllDrawers();
+        const backdrop = document.getElementById("drawerBackdrop");
+        const drawer = document.getElementById(drawerId);
+        if (backdrop) backdrop.classList.add("open");
+        if (drawer) drawer.classList.add("open");
+      }
+
+      function closeAllDrawers() {
+        const backdrop = document.getElementById("drawerBackdrop");
+        const menuDrawer = document.getElementById("mobileMenuDrawer");
+        const cartDrawer = document.getElementById("cartDrawer");
+        if (backdrop) backdrop.classList.remove("open");
+        if (menuDrawer) menuDrawer.classList.remove("open");
+        if (cartDrawer) cartDrawer.classList.remove("open");
+      }
+
+      function applyLanguage(lang) {
+        currentLang = lang === "en" ? "en" : "el";
+        document.documentElement.lang = currentLang;
+
+        const langBtn = document.getElementById("langToggleBtn");
+        if (langBtn) {
+          langBtn.textContent = currentLang === "el" ? "EN" : "ΕΛ";
+        }
+
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (key && I18N[currentLang][key]) {
+            el.textContent = I18N[currentLang][key];
+          }
+        });
+
+        const nameInput = document.getElementById("recipientName");
+        const phoneInput = document.getElementById("recipientPhone");
+        const revNameInput = document.getElementById("reviewAuthorName");
+        const revCommentInput = document.getElementById("reviewCommentText");
+        if (nameInput) {
+          nameInput.placeholder = currentLang === "el" ? "π.χ. Μαρία Παπαδοπούλου" : "e.g. Maria Papadopoulou";
+        }
+        if (phoneInput) {
+          phoneInput.placeholder = currentLang === "el" ? "π.χ. 99 123456" : "e.g. 99 123456";
+        }
+        if (revNameInput) {
+          revNameInput.placeholder = currentLang === "el" ? "π.χ. Σοφία Ν., Πάφος" : "e.g. Sophia N., Paphos";
+        }
+        if (revCommentInput) {
+          revCommentInput.placeholder =
+            currentLang === "el"
+              ? "Γράψτε λίγα λόγια για τη διάρκεια και το άρωμα..."
+              : "Share a few words about the scent throw and quality...";
+        }
+
+        updateSizeOptionLabels();
+        populateScentSelects();
+        renderScentDirectory();
+        populateReviewProductScentSelect();
+        renderReviewsSection();
+        updateDistrictLabels();
+        updateCourierLocationUI();
+        renderCart();
+      }
+
+      function clearFieldErrors() {
+        ["fieldFullName", "fieldPhone", "fieldCourier", "fieldDistrict", "fieldAkisBranch"].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.classList.remove("has-error");
+        });
+        const errEl = document.getElementById("checkoutErrorMsg");
+        if (errEl) errEl.textContent = "";
+      }
+
+      function validateStep2() {
+        clearFieldErrors();
+        const nameEl = document.getElementById("recipientName");
+        const phoneEl = document.getElementById("recipientPhone");
+        const courierEl = document.getElementById("shippingCourier");
+        const distEl = document.getElementById("recipientDistrict");
+        const branchEl = document.getElementById("akisBranch");
+        const errEl = document.getElementById("checkoutErrorMsg");
+
+        const fullName = nameEl ? nameEl.value.trim() : "";
+        const phone = phoneEl ? phoneEl.value.trim() : "";
+        const courier = courierEl ? courierEl.value.trim() : "";
+        const district = distEl ? distEl.value.trim() : "";
+        const branch = branchEl ? branchEl.value.trim() : "";
+
+        let firstInvalid = null;
+
+        if (!fullName) {
+          const f = document.getElementById("fieldFullName");
+          if (f) f.classList.add("has-error");
+          firstInvalid = firstInvalid || nameEl;
+        }
+        if (!phone || phone.replace(/\D/g, "").length < 6) {
+          const f = document.getElementById("fieldPhone");
+          if (f) f.classList.add("has-error");
+          firstInvalid = firstInvalid || phoneEl;
+        }
+        if (!courier) {
+          const f = document.getElementById("fieldCourier");
+          if (f) f.classList.add("has-error");
+          firstInvalid = firstInvalid || courierEl;
+        }
+        if (!district) {
+          const f = document.getElementById("fieldDistrict");
+          if (f) f.classList.add("has-error");
+          firstInvalid = firstInvalid || distEl;
+        }
+        if (!branch) {
+          const f = document.getElementById("fieldAkisBranch");
+          if (f) f.classList.add("has-error");
+          firstInvalid = firstInvalid || branchEl;
+        }
+
+        if (firstInvalid) {
+          if (errEl) {
+            errEl.textContent =
+              currentLang === "el"
+                ? `Παρακαλώ συμπληρώστε όλα τα υποχρεωτικά πεδία (Ονοματεπώνυμο, Έγκυρο Τηλέφωνο, Courier, Επαρχία και Σημείο ${courier || "Courier"}).`
+                : `Please fill in all required fields (Full Name, Valid Phone Number, Courier, District, and ${courier || "Courier"} Location).`;
+          }
+          firstInvalid.focus();
+          return null;
+        }
+
+        const selectedDistOpt = distEl.options[distEl.selectedIndex];
+        const districtDisplay = selectedDistOpt ? selectedDistOpt.textContent : district;
+
+        return {
+          fullName,
+          phone,
+          courier,
+          districtCode: district,
+          districtDisplay,
+          akisBranch: branch
+        };
+      }
+
+      async function handleOrderSubmit(e) {
+        e.preventDefault();
+        if (isSubmitting || cart.length === 0) return;
+
+        const details = validateStep2();
+        if (!details) return;
+
+        const submitBtn = document.getElementById("submitOrderBtn");
+        const errEl = document.getElementById("checkoutErrorMsg");
+        const confirmBox = document.getElementById("orderConfirmationBox");
+        const confirmTitle = document.getElementById("orderConfirmationTitle");
+        const confirmDesc = document.getElementById("orderConfirmationDesc");
+
+        isSubmitting = true;
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = I18N[currentLang].btn_sending;
+        }
+        if (errEl) errEl.textContent = "";
+        if (confirmBox) confirmBox.hidden = true;
+
+        const { subtotal, shipping, grandTotal } = getCartTotals();
+
+        const structuredItems = cart.map((item, idx) => ({
+          index: idx + 1,
+          category_el: PRODUCT_NAMES[item.productKey].el,
+          category_en: PRODUCT_NAMES[item.productKey].en,
+          size: item.size,
+          scent_el: FRAGRANCES[item.scentIdx].el,
+          scent_en: FRAGRANCES[item.scentIdx].en,
+          quantity: item.qty,
+          unit_price: roundCurrency(item.price),
+          line_total: roundCurrency(item.price * item.qty)
+        }));
+
+        const summaryLines = [
+          `New LUXE CANDLES Order (${details.courier})`,
+          "",
+          "Items:",
+          ...structuredItems.map((it) => {
+            const catLabel = currentLang === "el" ? it.category_el : it.category_en;
+            const scentLabel = currentLang === "el" ? it.scent_el : it.scent_en;
+            return `${it.index}. ${catLabel} | ${it.size} | ${scentLabel} x ${it.quantity} = ${formatEuro(it.line_total)}`;
+          }),
+          "",
+          `Subtotal: ${formatEuro(subtotal)}`,
+          `Shipping (${details.courier}): ${shipping === 0 ? "FREE (€0.00)" : formatEuro(shipping)}`,
+          `Grand Total: ${formatEuro(grandTotal)}`,
+          "",
+          "Recipient & Delivery Details:",
+          `Full Name: ${details.fullName}`,
+          `Phone: ${details.phone}`,
+          `Courier: ${details.courier}`,
+          `District: ${details.districtDisplay} (${details.districtCode})`,
+          `${details.courier} Branch / Location: ${details.akisBranch}`
+        ];
+
+        const payload = {
+          subject: "New LUXE CANDLES Order",
+          courier_service: details.courier,
+          store_email: STORE_EMAIL,
+          language: currentLang.toUpperCase(),
+          customer_name: details.fullName,
+          phone: details.phone,
+          courier: details.courier,
+          district: details.districtDisplay,
+          district_code: details.districtCode,
+          delivery_location: details.akisBranch,
+          subtotal: formatEuro(subtotal),
+          shipping_fee: shipping === 0 ? "FREE (€0.00)" : formatEuro(shipping),
+          grand_total: formatEuro(grandTotal),
+          items: structuredItems,
+          order_summary: summaryLines.join("\n")
+        };
+
+        try {
+          const response = await fetch(FORMSPREE_ENDPOINT, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json"
+            },
+            body: JSON.stringify(payload)
+          });
+
+          if (!response.ok) {
+            throw new Error("Formspree response not ok");
+          }
+
+          // Display Order Sent confirmation first, then clear & close cart smoothly
+          if (confirmTitle) confirmTitle.textContent = I18N[currentLang].order_success_title;
+          if (confirmDesc) confirmDesc.textContent = I18N[currentLang].order_success;
+          if (confirmBox) confirmBox.hidden = false;
+
+          setTimeout(() => {
+            closeAllDrawers();
+            setTimeout(() => {
+              cart = [];
+              const formEl = document.getElementById("checkoutForm");
+              if (formEl) formEl.reset();
+              updateCourierLocationUI();
+              if (confirmBox) confirmBox.hidden = true;
+              setCartStep(1);
+              renderCart();
+              isSubmitting = false;
+              if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = I18N[currentLang].btn_checkout;
+              }
+            }, 300);
+          }, 2600);
+        } catch (err) {
+          isSubmitting = false;
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = I18N[currentLang].btn_checkout;
+          }
+          if (errEl) {
+            errEl.textContent = I18N[currentLang].order_error_network;
+          }
+        }
+      }
+
+      // Fast, Snappy & Smooth Scroll-Driven Theme Transition (#FAF6F0 Warm Cream -> #1C1613 Deep Charcoal-Brown)
+      let ticking = false;
+      let lastAppliedT = -1;
+
+      function lerp(a, b, t) {
+        return Math.round(a + (b - a) * t);
+      }
+
+      function updateScrollTheme() {
+        ticking = false;
+        const scrollY = window.scrollY || window.pageYOffset || 0;
+        const collectionEl = document.getElementById("collection");
+        const triggerPoint = collectionEl
+          ? Math.max(180, collectionEl.offsetTop - window.innerHeight * 0.42)
+          : 340;
+        const transitionBand = 90;
+
+        let t;
+        if (scrollY <= triggerPoint) {
+          t = 0;
+        } else if (scrollY >= triggerPoint + transitionBand) {
+          t = 1;
+        } else {
+          const raw = (scrollY - triggerPoint) / transitionBand;
+          t = 1 - Math.pow(1 - raw, 3);
+        }
+
+        const pinnedBtn = document.getElementById("cartOpenBtn");
+        if (pinnedBtn) {
+          if (scrollY > 34) {
+            pinnedBtn.classList.add("is-scrolled");
+          } else {
+            pinnedBtn.classList.remove("is-scrolled");
+          }
+        }
+
+        if (Math.abs(t - lastAppliedT) < 0.001) return;
+        lastAppliedT = t;
+
+        // Page Background: #FAF6F0 (250, 246, 240) -> #1C1613 (28, 22, 19)
+        const bgR = lerp(250, 28, t);
+        const bgG = lerp(246, 22, t);
+        const bgB = lerp(240, 19, t);
+
+        // Muted Surface: #F3ECE2 (243, 236, 226) -> #241C18 (36, 28, 24)
+        const surfR = lerp(243, 36, t);
+        const surfG = lerp(236, 28, t);
+        const surfB = lerp(226, 24, t);
+
+        // Card Surface (Solid Opaque): #FFFFFF (255, 255, 255) -> #2A211C (42, 33, 28)
+        const cardR = lerp(255, 42, t);
+        const cardG = lerp(255, 33, t);
+        const cardB = lerp(255, 28, t);
+
+        // Input Surface (Solid Opaque): #FAF6F0 (250, 246, 240) -> #1E1814 (30, 24, 20)
+        const inR = lerp(250, 30, t);
+        const inG = lerp(246, 24, t);
+        const inB = lerp(240, 20, t);
+
+        // Text Primary (High Contrast): #1F1916 (31, 25, 22) -> #FAF6F0 (250, 246, 240)
+        const txtR = lerp(31, 250, t);
+        const txtG = lerp(25, 246, t);
+        const txtB = lerp(22, 240, t);
+
+        // Text Secondary (High Contrast): #4E433C (78, 67, 60) -> #E2D6CC (226, 214, 204)
+        const secR = lerp(78, 226, t);
+        const secG = lerp(67, 214, t);
+        const secB = lerp(60, 204, t);
+
+        // Solid Border Color: #DFCFC0 (223, 207, 192) -> #4A3A31 (74, 58, 49)
+        const brdR = lerp(223, 74, t);
+        const brdG = lerp(207, 58, t);
+        const brdB = lerp(192, 49, t);
+
+        const root = document.documentElement.style;
+        root.setProperty("--bg-page", `rgb(${bgR}, ${bgG}, ${bgB})`);
+        root.setProperty("--bg-surface", `rgb(${surfR}, ${surfG}, ${surfB})`);
+        root.setProperty("--bg-card", `rgb(${cardR}, ${cardG}, ${cardB})`);
+        root.setProperty("--input-bg", `rgb(${inR}, ${inG}, ${inB})`);
+        root.setProperty("--text-primary", `rgb(${txtR}, ${txtG}, ${txtB})`);
+        root.setProperty("--text-secondary", `rgb(${secR}, ${secG}, ${secB})`);
+        root.setProperty("--border-color", `rgb(${brdR}, ${brdG}, ${brdB})`);
+        root.setProperty("--header-bg", `rgb(${bgR}, ${bgG}, ${bgB})`);
+      }
+
+      function onScrollOrResize() {
+        if (!ticking) {
+          window.requestAnimationFrame(updateScrollTheme);
+          ticking = true;
+        }
+      }
+
+      // Mobile & Desktop Zoom Lock Protection
+      function setupZoomLock() {
+        document.addEventListener(
+          "touchstart",
+          (e) => {
+            if (e.touches && e.touches.length > 1) {
+              e.preventDefault();
+            }
+          },
+          { passive: false }
+        );
+
+        let lastTouchEnd = 0;
+        document.addEventListener(
+          "touchend",
+          (e) => {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+              e.preventDefault();
+            }
+            lastTouchEnd = now;
+          },
+          { passive: false }
+        );
+
+        document.addEventListener("gesturestart", (e) => e.preventDefault(), { passive: false });
+      }
+
+      function initApp() {
+        setupZoomLock();
+        setupMediaCarousels();
+        userSubmittedReviews = loadSavedReviews();
+        applyLanguage("el");
+        updateScrollTheme();
+
+        // Interactive Customer Review Star Selector & Form Submission
+        document.querySelectorAll("#reviewStarSelector .star-pick-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const val = parseInt(btn.getAttribute("data-star"), 10);
+            updateReviewStarUI(val);
+          });
+        });
+
+        const reviewForm = document.getElementById("customerReviewForm");
+        if (reviewForm) {
+          reviewForm.addEventListener("submit", handleReviewSubmit);
+        }
+
+        // Language Toggle
+        const langBtn = document.getElementById("langToggleBtn");
+        if (langBtn) {
+          langBtn.addEventListener("click", () => {
+            applyLanguage(currentLang === "el" ? "en" : "el");
+          });
+        }
+
+        // Category Filter Buttons
+        document.querySelectorAll(".filter-pill").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            document.querySelectorAll(".filter-pill").forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            const filter = btn.getAttribute("data-filter");
+            document.querySelectorAll(".product-card").forEach((card) => {
+              const cat = card.getAttribute("data-category");
+              card.style.display = filter === "all" || cat === filter ? "flex" : "none";
+            });
+          });
+        });
+
+        // Size selector price updates
+        document.querySelectorAll(".size-select").forEach((sel) => {
+          sel.addEventListener("change", () => {
+            const productKey = sel.getAttribute("data-product");
+            const opt = sel.options[sel.selectedIndex];
+            const price = opt ? parseFloat(opt.getAttribute("data-price")) : 0;
+            const priceEl = document.getElementById(`price-${productKey}`);
+            if (priceEl && !isNaN(price)) {
+              priceEl.textContent = formatEuro(price);
+            }
+          });
+        });
+
+        // Add to Cart Buttons
+        document.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const productKey = btn.getAttribute("data-product");
+            if (productKey) handleAddToCart(productKey, btn);
+          });
+        });
+
+        // Cart & 3-Line Menu Drawer Triggers
+        const cartOpenBtn = document.getElementById("cartOpenBtn");
+        if (cartOpenBtn) {
+          cartOpenBtn.addEventListener("click", () => {
+            setCartStep(1);
+            openDrawer("cartDrawer");
+          });
+        }
+
+        const cartCloseBtn = document.getElementById("cartCloseBtn");
+        if (cartCloseBtn) {
+          cartCloseBtn.addEventListener("click", closeAllDrawers);
+        }
+
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+        if (mobileMenuBtn) {
+          mobileMenuBtn.addEventListener("click", () => {
+            openDrawer("mobileMenuDrawer");
+          });
+        }
+
+        const mobileMenuCloseBtn = document.getElementById("mobileMenuCloseBtn");
+        if (mobileMenuCloseBtn) {
+          mobileMenuCloseBtn.addEventListener("click", closeAllDrawers);
+        }
+
+        document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+          link.addEventListener("click", closeAllDrawers);
+        });
+
+        const drawerBackdrop = document.getElementById("drawerBackdrop");
+        if (drawerBackdrop) {
+          drawerBackdrop.addEventListener("click", closeAllDrawers);
+        }
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeAllDrawers();
+        });
+
+        // 2-Step Cart Navigation
+        const continueBtn = document.getElementById("continueToStep2Btn");
+        if (continueBtn) {
+          continueBtn.addEventListener("click", () => {
+            if (cart.length > 0) {
+              clearFieldErrors();
+              setCartStep(2);
+            }
+          });
+        }
+
+        const backBtn = document.getElementById("backToStep1Btn");
+        if (backBtn) {
+          backBtn.addEventListener("click", () => {
+            setCartStep(1);
+          });
+        }
+
+        // Courier Selector & Formspree Step 2 Checkout Submission
+        const courierSel = document.getElementById("shippingCourier");
+        if (courierSel) {
+          courierSel.addEventListener("change", updateCourierLocationUI);
+        }
+
+        const checkoutForm = document.getElementById("checkoutForm");
+        if (checkoutForm) {
+          checkoutForm.addEventListener("submit", handleOrderSubmit);
+        }
+
+        // Scroll & Resize Listeners
+        window.addEventListener("scroll", onScrollOrResize, { passive: true });
+        window.addEventListener("resize", onScrollOrResize, { passive: true });
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initApp);
+      } else {
+        initApp();
+      }
+    })();
+  </script>
+</body>
+</html>
